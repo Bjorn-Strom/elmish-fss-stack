@@ -22,6 +22,8 @@ node_modules
 .idea
 packages
 .parcel-cache
+*.js
+**/*.js
 
 ### macOS ###
 # General
