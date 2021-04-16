@@ -20,7 +20,7 @@ node_modules
 .paket
 .cache
 .idea
-.packages
+packages
 .parcel-cache
 
 ### macOS ###

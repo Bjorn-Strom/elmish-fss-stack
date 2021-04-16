@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships">
-  <Relationship Type="http://schemas.microsoft.com/packaging/2010/07/manifest" Target="/Fable.Remoting.Client.nuspec" Id="RCFF92A168615480E" />
-  <Relationship Type="http://schemas.openxmlformats.org/package/2006/relationships/metadata/core-properties" Target="/package/services/metadata/core-properties/05173224796d4ab08c20c4c3c7eff89a.psmdcp" Id="RF4548C1F1526124F" />
-</Relationships>

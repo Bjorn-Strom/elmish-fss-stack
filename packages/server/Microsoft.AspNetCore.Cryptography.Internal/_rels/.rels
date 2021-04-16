@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships">
-  <Relationship Type="http://schemas.microsoft.com/packaging/2010/07/manifest" Target="/Microsoft.AspNetCore.Cryptography.Internal.nuspec" Id="RC94ABD03ABA3C7C9" />
-  <Relationship Type="http://schemas.openxmlformats.org/package/2006/relationships/metadata/core-properties" Target="/package/services/metadata/core-properties/542ba9f0f40a498cb25ef91b3be9f515.psmdcp" Id="R8E3C04D6AD39A68B" />
-</Relationships>

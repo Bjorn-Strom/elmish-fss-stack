@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships">
-  <Relationship Type="http://schemas.microsoft.com/packaging/2010/07/manifest" Target="/Microsoft.IO.RecyclableMemoryStream.nuspec" Id="RB6203A286C8E1746" />
-  <Relationship Type="http://schemas.openxmlformats.org/package/2006/relationships/metadata/core-properties" Target="/package/services/metadata/core-properties/60e2005aab0e4d999434ffc2b580ca7d.psmdcp" Id="RE8F2EFD7DA7773EA" />
-</Relationships>

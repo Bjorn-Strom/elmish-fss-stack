@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships">
-  <Relationship Type="http://schemas.microsoft.com/packaging/2010/07/manifest" Target="/Fable.Browser.Gamepad.nuspec" Id="R288F306E31F910EC" />
-  <Relationship Type="http://schemas.openxmlformats.org/package/2006/relationships/metadata/core-properties" Target="/package/services/metadata/core-properties/819b00b3c7024799b077e30d90ef137e.psmdcp" Id="RC5EB690FAF3A44C7" />
-</Relationships>

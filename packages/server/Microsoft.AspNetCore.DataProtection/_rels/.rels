@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships">
-  <Relationship Type="http://schemas.microsoft.com/packaging/2010/07/manifest" Target="/Microsoft.AspNetCore.DataProtection.nuspec" Id="R6D3EA28CDF995F2F" />
-  <Relationship Type="http://schemas.openxmlformats.org/package/2006/relationships/metadata/core-properties" Target="/package/services/metadata/core-properties/8c25ec031ad24b3ca29f704526cfb9cf.psmdcp" Id="R743CC4CD0EB7D7FC" />
-</Relationships>
