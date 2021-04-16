@@ -1,0 +1,7 @@
+group Client
+    FSharp.Core
+    Fable.Core
+    Fable.Elmish.React
+    Fable.Remoting.Client
+    Fable.React
+    Fss-lib

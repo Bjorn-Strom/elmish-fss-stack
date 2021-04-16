@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2013/05/nuspec.xsd">
+  <metadata>
+    <id>TypeShape</id>
+    <version>9.0.0</version>
+    <authors>Eirik Tsarpalis</authors>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <license type="expression">MIT</license>
+    <licenseUrl>https://licenses.nuget.org/MIT</licenseUrl>
+    <projectUrl>https://github.com/eiriktsarpalis/TypeShape</projectUrl>
+    <description>Practical Generic Programming for F#</description>
+    <releaseNotes>Only target netstandard2.0.
+Remove TYPESHAPE_EMIT build conditional.
+Remove System.Reflection.Emit dependency.</releaseNotes>
+    <copyright>2019</copyright>
+    <tags>fsharp, f#, polytypic</tags>
+    <repository type="git" url="https://github.com/eiriktsarpalis/TypeShape" commit="dbf5c5d887052211f9d88f4ed2bbf7e7bffcdc67" />
+    <dependencies>
+      <group targetFramework=".NETStandard2.0">
+        <dependency id="FSharp.Core" version="4.3.2" exclude="Build,Analyzers" />
+      </group>
+    </dependencies>
+  </metadata>
+</package>

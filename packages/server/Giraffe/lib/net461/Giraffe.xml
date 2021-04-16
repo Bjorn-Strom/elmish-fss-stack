@@ -1,0 +1,2513 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doc>
+<assembly><name>Giraffe</name></assembly>
+<members>
+<member name="M:Giraffe.Common.readFileAsStringAsync(System.String)">
+<summary>
+ **Description**
+
+ Reads a file asynchronously from the file system.
+
+ **Parameters**
+
+ `filePath`: The absolute path of the file.
+
+ **Output**
+
+ Returns the string contents of the file wrapped in a Task.
+
+</summary>
+</member>
+<member name="M:Giraffe.Common.strOption(System.String)">
+<summary>
+ **Description**
+
+ Converts a `string` into a `string option` where `null` or an empty string will be converted to `None` and everything else to `Some string`.
+
+ **Parameters**
+
+ `str`: The string value to be converted into an option of string.
+
+ **Output**
+
+ Returns `None` if the string was `null` or empty otherwise `Some string`.
+
+</summary>
+</member>
+<member name="M:Giraffe.Common.isNotNull``1(``0)">
+<summary>
+ **Description**
+
+ Checks if an object is not null.
+
+ **Parameters**
+
+ `x`: The object to validate against `null`.
+
+ **Output**
+
+ Returns `true` if the object is not `null` otherwise `false`.
+
+</summary>
+</member>
+<member name="M:Giraffe.Common.DateTimeOffset.ToIsoString(System.DateTimeOffset)">
+<summary>
+ **Description**
+
+ Converts a `DateTime` object into an RFC3339 formatted `string`.
+
+ **Specification**
+
+ https://www.ietf.org/rfc/rfc3339.txt
+
+ **Output**
+
+ Formatted string value.
+
+</summary>
+</member>
+<member name="M:Giraffe.Common.DateTimeOffset.ToHtmlString(System.DateTimeOffset)">
+<summary>
+ **Description**
+
+ Converts a `DateTimeOffset` object into an RFC822 formatted `string`.
+
+ **Specification**
+
+ https://www.ietf.org/rfc/rfc822.txt
+
+ **Output**
+
+ Formatted string value.
+
+</summary>
+</member>
+<member name="M:Giraffe.Common.DateTime.ToIsoString(System.DateTime)">
+<summary>
+ **Description**
+
+ Converts a `DateTime` object into an RFC3339 formatted `string`.
+
+ **Specification**
+
+ https://www.ietf.org/rfc/rfc3339.txt
+
+ **Output**
+
+ Formatted string value.
+
+</summary>
+</member>
+<member name="M:Giraffe.Common.DateTime.ToHtmlString(System.DateTime)">
+<summary>
+ **Description**
+
+ Converts a `DateTime` object into an RFC822 formatted `string`.
+
+ **Specification**
+
+ https://www.ietf.org/rfc/rfc822.txt
+
+ **Output**
+
+ Formatted string value.
+
+</summary>
+</member>
+<member name="M:Giraffe.Common.ShortId.toUInt64(System.String)">
+<summary>
+ **Description**
+
+ Converts a 11 character short ID string into the matching `uint64` value.
+
+ **Parameters**
+
+ `shortId`: The short ID string to be converted into a `uint64` value.
+
+ **Output**
+
+ Returns a `uint64` value.
+
+</summary>
+</member>
+<member name="M:Giraffe.Common.ShortId.fromUInt64(System.UInt64)">
+<summary>
+ **Description**
+
+ Converts a `uint64` value into a 11 character long
+ short ID string.
+
+ **Parameters**
+
+ `id`: The `uint64` to be converted into a short ID.
+
+ **Output**
+
+ Returns a 11 character long URL encoded short ID string.
+
+</summary>
+</member>
+<member name="T:Giraffe.Common.ShortId">
+<summary>
+ **Description**
+
+ Short IDs are a shorter, URL-friendlier version
+ of an unsigned 64-bit integer value (`uint64` in F# and `ulong` in C#).
+
+ Short IDs are always 11 characters long, which let&apos;s
+ one save a total of 9 characters in comparison to using
+ a normal `uint64` value as identifier.
+
+ Additionally a Short ID is by default a URL encoded
+ string which doesn&apos;t need extra character replacing
+ before using it in a URL query parameter.
+
+ All Short ID strings map directly to a `uint64` object
+ and the `ShortId` module can be used to convert an
+ `uint64` value into a short ID `string` and vice versa.
+
+ For more information please check:
+ https://webapps.stackexchange.com/questions/54443/format-for-id-of-youtube-video
+
+</summary>
+</member>
+<member name="M:Giraffe.Common.ShortGuid.toGuid(System.String)">
+<summary>
+ **Description**
+
+ Converts a 22 character short GUID string into the matching `System.Guid`.
+
+ **Parameters**
+
+ `shortGuid`: The short GUID string to be converted into a `System.Guid`.
+
+ **Output**
+
+ Returns a `System.Guid` object.
+
+</summary>
+</member>
+<member name="M:Giraffe.Common.ShortGuid.fromGuid(System.Guid)">
+<summary>
+ **Description**
+
+ Converts a `System.Guid` into a 22 character long
+ short GUID string.
+
+ **Parameters**
+
+ `guid`: The `System.Guid` to be converted into a short GUID.
+
+ **Output**
+
+ Returns a 22 character long URL encoded short GUID string.
+
+</summary>
+</member>
+<member name="T:Giraffe.Common.ShortGuid">
+<summary>
+ **Description**
+
+ Short GUIDs are a shorter, URL-friendlier version
+ of the traditional `System.Guid` type.
+
+ Short GUIDs are always 22 characters long, which let&apos;s
+ one save a total of 10 characters in comparison to using
+ a normal `System.Guid` as identifier.
+
+ Additionally a Short GUID is by default a URL encoded
+ string which doesn&apos;t need extra character replacing
+ before using of it in a URL query parameter.
+
+ All Short GUID strings map directly to a `System.Guid`
+ object and the `ShortGuid` module can be used to convert
+ a `System.Guid` into a short GUID `string` and vice versa.
+
+ For more information please check:
+ https://madskristensen.net/blog/A-shorter-and-URL-friendly-GUID
+
+</summary>
+</member>
+<member name="P:Giraffe.ComputationExpressions.res">
+<summary>
+ **Description**
+
+ Enables control flow and binding of `Result&lt;&apos;T, &apos;TError&gt;` objects
+
+</summary>
+</member>
+<member name="P:Giraffe.ComputationExpressions.opt">
+<summary>
+ **Description**
+
+ Enables control flow and binding of `Option&lt;&apos;T&gt;` objects
+
+</summary>
+</member>
+<member name="T:Giraffe.ComputationExpressions">
+<summary>
+ **Description**
+
+ A collection of F# computation expressions:
+
+ `opt {}`: Enables control flow and binding of Option&lt;&apos;T&gt; objects
+ `res {}`: Enables control flow and binding of Result&lt;&apos;T, &apos;TError&gt; objects
+
+</summary>
+</member>
+<member name="T:Giraffe.Serialization.Xml.DefaultXmlSerializer">
+<summary>
+ **Description**
+
+ Default XML serializer in Giraffe.
+
+ Serializes objects to UTF8 encoded indented XML code.
+
+</summary>
+</member>
+<member name="T:Giraffe.Serialization.Xml.IXmlSerializer">
+<summary>
+ **Description**
+
+ Interface defining XML serialization methods. Use this interface to customize XML serialization in Giraffe.
+
+</summary>
+</member>
+<member name="T:Giraffe.Serialization.Json.NewtonsoftJsonSerializer">
+<summary>
+ **Description**
+
+ The previous default JSON serializer in Giraffe.
+
+ The `NewtonsoftJsonSerializer` has been replaced by `Utf8JsonSerializer` as
+ the default `IJsonSerializer` which has much better performance and supports
+ true chunked transfer encoding.
+
+ The `NewtonsoftJsonSerializer` remains available as an alternative JSON
+ serializer which can be used to override the `Utf8JsonSerializer` for
+ backwards compatibility.
+
+ Serializes objects to camel cased JSON code.
+
+</summary>
+</member>
+<member name="T:Giraffe.Serialization.Json.Utf8JsonSerializer">
+<summary>
+ **Description**
+
+ The `Utf8JsonSerializer` is the default `IJsonSerializer` in Giraffe.
+
+ It uses `Utf8Json` as the underlying JSON serializer to (de-)serialize
+ JSON content. [Utf8Json](https://github.com/neuecc/Utf8Json) is currently
+ the fastest JSON serializer for .NET.
+
+</summary>
+</member>
+<member name="T:Giraffe.Serialization.Json.IJsonSerializer">
+<summary>
+ **Description**
+
+ Interface defining JSON serialization methods. Use this interface to customize JSON serialization in Giraffe.
+
+</summary>
+</member>
+<member name="M:Giraffe.FormatExpressions.validateFormat``5(Microsoft.FSharp.Core.PrintfFormat{``0,``1,``2,``3,``4})">
+<summary>
+ **Description**
+
+ Validates if a given format string can be matched with a given tuple.
+
+ **Parameters**
+
+ `format`: The format string which shall be used for parsing.
+
+ **Output**
+
+ Returns `unit` if validation was successful otherwise will throw an `Exception`.
+
+</summary>
+</member>
+<member name="M:Giraffe.FormatExpressions.tryMatchInputExact``5(Microsoft.FSharp.Core.PrintfFormat{``0,``1,``2,``3,``4},System.Boolean,System.String)">
+<summary>
+ **Description**
+
+ Tries to parse an input string based on a given format string and return a tuple of all parsed arguments.
+
+ **Parameters**
+
+ `format`: The format string which shall be used for parsing.
+ `input`: The input string from which the parsed arguments shall be extracted.
+ `ignoreCase`: The flag to make matching case insensitive.
+
+ **Output**
+
+ Matched value as an option of &apos;T
+
+</summary>
+</member>
+<member name="M:Giraffe.FormatExpressions.tryMatchInput``5(Microsoft.FSharp.Core.PrintfFormat{``0,``1,``2,``3,``4},Giraffe.FormatExpressions.MatchOptions,System.String)">
+<summary>
+ **Description**
+
+ Tries to parse an input string based on a given format string and return a tuple of all parsed arguments.
+
+ **Parameters**
+
+ `format`: The format string which shall be used for parsing.
+ `input`: The input string from which the parsed arguments shall be extracted.
+ `options`: The options record with specifications on how the matching should behave.
+
+ **Output**
+
+ Matched value as an option of &apos;T
+
+</summary>
+</member>
+<member name="T:Giraffe.Core.ErrorHandler">
+<summary>
+ **Description**
+
+ The error handler function takes an `Exception` object as well as an `ILogger` instance and returns a `HttpHandler` function which takes care of handling any uncaught application errors.
+
+</summary>
+</member>
+<member name="T:Giraffe.Core.HttpHandler">
+<summary>
+ **Description**
+
+ A HTTP handler is the core building block of a Giraffe web application. It works similarly to ASP.NET Core&apos;s middleware where it is self responsible for invoking the next `HttpFunc` function of the pipeline or shortcircuit the execution by directly returning a `Task` of `HttpContext option`.
+
+</summary>
+</member>
+<member name="T:Giraffe.Core.HttpFunc">
+<summary>
+ **Description**
+
+ A HTTP function which takes an `HttpContext` object and returns a `HttpFuncResult`.
+
+ The function may inspect the incoming `HttpRequest` and make modifications to the `HttpResponse` before returning a `HttpFuncResult`. The result can be either a `Task` of `Some HttpContext` or a `Task` of `None`.
+
+ If the result is `Some HttpContext` then the Giraffe middleware will return the response to the client and end the pipeline. However, if the result is `None` then the Giraffe middleware will continue the ASP.NET Core pipeline by invoking the `next` middleware.
+
+</summary>
+</member>
+<member name="T:Giraffe.Core.HttpFuncResult">
+<summary>
+ **Description**
+
+ A type alias for `Task&lt;HttpContext option&gt;` which represents the result of a HTTP function (`HttpFunc`).
+
+ If the result is `Some HttpContext` then the Giraffe middleware will return the response to the client and end the pipeline. However, if the result is `None` then the Giraffe middleware will continue the ASP.NET Core pipeline by invoking the `next` middleware.
+
+</summary>
+</member>
+<member name="M:Giraffe.Core.redirectTo(System.Boolean,System.String,Microsoft.FSharp.Core.FSharpFunc{Microsoft.AspNetCore.Http.HttpContext,System.Threading.Tasks.Task{Microsoft.FSharp.Core.FSharpOption{Microsoft.AspNetCore.Http.HttpContext}}},Microsoft.AspNetCore.Http.HttpContext)">
+<summary>
+ **Description**
+
+ Redirects to a different location with a `302` or `301` (when permanent) HTTP status code.
+
+ **Parameters**
+
+ `permanent`: If true the redirect is permanent (301), otherwise temporary (302).
+ `location`: The URL to redirect the client to.
+
+ **Output**
+
+ A Giraffe `HttpHandler` function which can be composed into a bigger web application.
+
+</summary>
+</member>
+<member name="M:Giraffe.Core.mustAccept(Microsoft.FSharp.Collections.FSharpList{System.String},Microsoft.FSharp.Core.FSharpFunc{Microsoft.AspNetCore.Http.HttpContext,System.Threading.Tasks.Task{Microsoft.FSharp.Core.FSharpOption{Microsoft.AspNetCore.Http.HttpContext}}},Microsoft.AspNetCore.Http.HttpContext)">
+<summary>
+ **Description**
+
+ Filters an incoming HTTP request based on the accepted mime types of the client (`Accept` HTTP header).
+
+ If the client doesn&apos;t accept any of the provided `mimeTypes` then the handler will not continue executing the `next` `HttpHandler` function.
+
+ **Parameters**
+
+ `mimeTypes`: List of mime types of which the client has to accept at least one.
+
+ **Output**
+
+ A Giraffe `HttpHandler` function which can be composed into a bigger web application.
+
+</summary>
+</member>
+<member name="M:Giraffe.Core.setHttpHeader(System.String,System.Object,Microsoft.FSharp.Core.FSharpFunc{Microsoft.AspNetCore.Http.HttpContext,System.Threading.Tasks.Task{Microsoft.FSharp.Core.FSharpOption{Microsoft.AspNetCore.Http.HttpContext}}},Microsoft.AspNetCore.Http.HttpContext)">
+<summary>
+ **Description**
+
+ Adds or sets a HTTP header in the response.
+
+ **Parameters**
+
+ `key`: The HTTP header name. For convenience you can use the static `Microsoft.Net.Http.Headers.HeaderNames` class for passing in strongly typed header names instead of using pure `string` values.
+ `value`: The value to be set. Non string values will be converted to a string using the object&apos;s `ToString()` method.
+
+ **Output**
+
+ A Giraffe `HttpHandler` function which can be composed into a bigger web application.
+
+</summary>
+</member>
+<member name="M:Giraffe.Core.setStatusCode(System.Int32,Microsoft.FSharp.Core.FSharpFunc{Microsoft.AspNetCore.Http.HttpContext,System.Threading.Tasks.Task{Microsoft.FSharp.Core.FSharpOption{Microsoft.AspNetCore.Http.HttpContext}}},Microsoft.AspNetCore.Http.HttpContext)">
+<summary>
+ **Description**
+
+ Sets the HTTP status code of the response.
+
+ **Parameters**
+
+ `statusCode`: The status code to be set in the response. For convenience you can use the static `Microsoft.AspNetCore.Http.StatusCodes` class for passing in named status codes instead of using pure `int` values.
+
+ **Output**
+
+ A Giraffe `HttpHandler` function which can be composed into a bigger web application.
+
+</summary>
+</member>
+<member name="M:Giraffe.Core.clearResponse(Microsoft.FSharp.Core.FSharpFunc{Microsoft.AspNetCore.Http.HttpContext,System.Threading.Tasks.Task{Microsoft.FSharp.Core.FSharpOption{Microsoft.AspNetCore.Http.HttpContext}}},Microsoft.AspNetCore.Http.HttpContext)">
+<summary>
+ **Description**
+
+ Clears the current `HttpResponse` object.
+
+ This can be useful if a `HttpHandler` function needs to overwrite the response of all previous `HttpHandler` functions with its own response (most commonly used by an `ErrorHandler` function).
+
+ **Output**
+
+ A Giraffe `HttpHandler` function which can be composed into a bigger web application.
+
+</summary>
+</member>
+<member name="M:Giraffe.Core.httpVerb(Microsoft.FSharp.Core.FSharpFunc{System.String,System.Boolean},Microsoft.FSharp.Core.FSharpFunc{Microsoft.AspNetCore.Http.HttpContext,System.Threading.Tasks.Task{Microsoft.FSharp.Core.FSharpOption{Microsoft.AspNetCore.Http.HttpContext}}},Microsoft.AspNetCore.Http.HttpContext)">
+<summary>
+ **Description**
+
+ Filters an incoming HTTP request based on the HTTP verb.
+
+ **Parameters**
+
+ `validate`: A validation function which checks for a single HTTP verb.
+
+ **Output**
+
+ A Giraffe `HttpHandler` function which can be composed into a bigger web application.
+
+</summary>
+</member>
+<member name="M:Giraffe.Core.choose(Microsoft.FSharp.Collections.FSharpList{Microsoft.FSharp.Core.FSharpFunc{Microsoft.FSharp.Core.FSharpFunc{Microsoft.AspNetCore.Http.HttpContext,System.Threading.Tasks.Task{Microsoft.FSharp.Core.FSharpOption{Microsoft.AspNetCore.Http.HttpContext}}},Microsoft.FSharp.Core.FSharpFunc{Microsoft.AspNetCore.Http.HttpContext,System.Threading.Tasks.Task{Microsoft.FSharp.Core.FSharpOption{Microsoft.AspNetCore.Http.HttpContext}}}}},Microsoft.FSharp.Core.FSharpFunc{Microsoft.AspNetCore.Http.HttpContext,System.Threading.Tasks.Task{Microsoft.FSharp.Core.FSharpOption{Microsoft.AspNetCore.Http.HttpContext}}})">
+<summary>
+ **Description**
+
+ Iterates through a list of `HttpHandler` functions and returns the result of the first `HttpHandler` of which the outcome is `Some HttpContext`.
+
+ Please mind that all `HttpHandler` functions will get pre-evaluated at runtime by applying the `next` (`HttpFunc`) parameter to each handler.
+
+</summary>
+</member>
+<member name="M:Giraffe.Core.chooseHttpFunc(Microsoft.FSharp.Collections.FSharpList{Microsoft.FSharp.Core.FSharpFunc{Microsoft.AspNetCore.Http.HttpContext,System.Threading.Tasks.Task{Microsoft.FSharp.Core.FSharpOption{Microsoft.AspNetCore.Http.HttpContext}}}},Microsoft.AspNetCore.Http.HttpContext)">
+<summary>
+ **Description**
+
+ Iterates through a list of `HttpFunc` functions and returns the result of the first `HttpFunc` of which the outcome is `Some HttpContext`.
+
+</summary>
+</member>
+<member name="P:Giraffe.Core.op_GreaterEqualsGreater">
+<summary>
+ **Description**
+
+ Combines two `HttpHandler` functions into one.
+
+ Please mind that both `HttpHandler` functions will get pre-evaluated at runtime by applying the `next` `HttpFunc` parameter of each handler.
+
+</summary>
+</member>
+<member name="M:Giraffe.Core.compose(Microsoft.FSharp.Core.FSharpFunc{Microsoft.FSharp.Core.FSharpFunc{Microsoft.AspNetCore.Http.HttpContext,System.Threading.Tasks.Task{Microsoft.FSharp.Core.FSharpOption{Microsoft.AspNetCore.Http.HttpContext}}},Microsoft.FSharp.Core.FSharpFunc{Microsoft.AspNetCore.Http.HttpContext,System.Threading.Tasks.Task{Microsoft.FSharp.Core.FSharpOption{Microsoft.AspNetCore.Http.HttpContext}}}},Microsoft.FSharp.Core.FSharpFunc{Microsoft.FSharp.Core.FSharpFunc{Microsoft.AspNetCore.Http.HttpContext,System.Threading.Tasks.Task{Microsoft.FSharp.Core.FSharpOption{Microsoft.AspNetCore.Http.HttpContext}}},Microsoft.FSharp.Core.FSharpFunc{Microsoft.AspNetCore.Http.HttpContext,System.Threading.Tasks.Task{Microsoft.FSharp.Core.FSharpOption{Microsoft.AspNetCore.Http.HttpContext}}}},Microsoft.FSharp.Core.FSharpFunc{Microsoft.AspNetCore.Http.HttpContext,System.Threading.Tasks.Task{Microsoft.FSharp.Core.FSharpOption{Microsoft.AspNetCore.Http.HttpContext}}})">
+<summary>
+ **Description**
+
+ Combines two `HttpHandler` functions into one.
+
+ Please mind that both `HttpHandler` functions will get pre-evaluated at runtime by applying the `next` `HttpFunc` parameter of each handler.
+
+ You can also use the fish operator `&gt;=&gt;` as a more convenient alternative to `compose`.
+
+</summary>
+</member>
+<member name="M:Giraffe.Core.handleContext(Microsoft.FSharp.Core.FSharpFunc{Microsoft.AspNetCore.Http.HttpContext,System.Threading.Tasks.Task{Microsoft.FSharp.Core.FSharpOption{Microsoft.AspNetCore.Http.HttpContext}}},Microsoft.FSharp.Core.FSharpFunc{Microsoft.AspNetCore.Http.HttpContext,System.Threading.Tasks.Task{Microsoft.FSharp.Core.FSharpOption{Microsoft.AspNetCore.Http.HttpContext}}},Microsoft.AspNetCore.Http.HttpContext)">
+<summary>
+ **Description**
+
+ The `handleContext` function is a convenience function which can be used to create a new `HttpHandler` function which only requires access to the `HttpContext` object.
+
+ **Parameters**
+
+ `contextMap`: A function which accepts a `HttpContext` object and returns a `HttpFuncResult` function.
+
+ **Output**
+
+ A Giraffe `HttpHandler` function which can be composed into a bigger web application.
+
+</summary>
+</member>
+<member name="P:Giraffe.Core.earlyReturn">
+<summary>
+ **Description**
+
+ Use `earlyReturn` to shortcircuit the `HttpHandler` pipeline and return `Some HttpContext` to the surrounding `HttpHandler` or the Giraffe middleware (which would subsequently end the pipeline by returning the response back to the client).
+
+</summary>
+</member>
+<member name="P:Giraffe.Core.skipPipeline">
+<summary>
+ **Description**
+
+ Use `skipPipeline` to shortcircuit the `HttpHandler` pipeline and return `None` to the surrounding `HttpHandler` or the Giraffe middleware (which would subsequently invoke the `next` middleware as a result of it).
+
+</summary>
+</member>
+<member name="M:Giraffe.Core.warbler``3(Microsoft.FSharp.Core.FSharpFunc{System.Tuple{Microsoft.FSharp.Core.FSharpFunc{``0,System.Threading.Tasks.Task{Microsoft.FSharp.Core.FSharpOption{Microsoft.AspNetCore.Http.HttpContext}}},Microsoft.AspNetCore.Http.HttpContext},Microsoft.FSharp.Core.FSharpFunc{Microsoft.FSharp.Core.FSharpFunc{``1,System.Threading.Tasks.Task{Microsoft.FSharp.Core.FSharpOption{Microsoft.AspNetCore.Http.HttpContext}}},Microsoft.FSharp.Core.FSharpFunc{Microsoft.AspNetCore.Http.HttpContext,``2}}},Microsoft.FSharp.Core.FSharpFunc{Microsoft.AspNetCore.Http.HttpContext,System.Threading.Tasks.Task{Microsoft.FSharp.Core.FSharpOption{Microsoft.AspNetCore.Http.HttpContext}}},Microsoft.AspNetCore.Http.HttpContext)">
+<summary>
+ **Description**
+
+ The `warbler` function is a `HttpHandler` wrapper function which prevents a `HttpHandler` to be pre-evaluated at startup.
+
+ **Parameters**
+
+ `f`: A function which takes a `HttpFunc * HttpContext` tuple and returns a `HttpHandler` function.
+
+ **Output**
+
+ Returns a `HttpHandler` function.
+
+ **Example**
+
+ `warbler(fun _ -&gt; someHttpHandler)`
+
+</summary>
+</member>
+<member name="M:Giraffe.Core.HttpContext.GetFormValue(Microsoft.AspNetCore.Http.HttpContext,System.String)">
+<summary>
+ **Description**
+
+ Retrieves the `string` value of a form parameter from the request.
+
+ **Parameters**
+
+ `key`: The name of the form parameter.
+
+ **Output**
+
+ Returns `Some string` if the form parameter was set, otherwise returns `None`.
+
+</summary>
+</member>
+<member name="M:Giraffe.Core.HttpContext.GetCookieValue(Microsoft.AspNetCore.Http.HttpContext,System.String)">
+<summary>
+ **Description**
+
+ Retrieves the `string` value of a cookie from the request.
+
+ **Parameters**
+
+ `key`: The name of the cookie.
+
+ **Output**
+
+ Returns `Some string` if the cookie was set, otherwise returns `None`.
+
+</summary>
+</member>
+<member name="M:Giraffe.Core.HttpContext.GetQueryStringValue(Microsoft.AspNetCore.Http.HttpContext,System.String)">
+<summary>
+ **Description**
+
+ Retrieves the `string` value of a query string parameter from the request.
+
+ **Parameters**
+
+ `key`: The name of the query string parameter.
+
+ **Output**
+
+ Returns `Ok string` if the parameter was present in the request&apos;s query string, otherwise returns `Error string`.
+
+</summary>
+</member>
+<member name="M:Giraffe.Core.HttpContext.TryGetQueryStringValue(Microsoft.AspNetCore.Http.HttpContext,System.String)">
+<summary>
+ **Description**
+
+ Tries to get the `string` value of a query string parameter from the request.
+
+ **Parameters**
+
+ `key`: The name of the query string parameter.
+
+ **Output**
+
+ Returns `Some string` if the parameter was present in the request&apos;s query string, otherwise returns `None`.
+
+</summary>
+</member>
+<member name="M:Giraffe.Core.HttpContext.GetRequestHeader(Microsoft.AspNetCore.Http.HttpContext,System.String)">
+<summary>
+ **Description**
+
+ Retrieves the `string` value of a HTTP header from the request.
+
+ **Parameters**
+
+ `key`: The name of the HTTP header.
+
+ **Output**
+
+ Returns `Ok string` if the HTTP header was present in the request, otherwise returns `Error string`.
+
+</summary>
+</member>
+<member name="M:Giraffe.Core.HttpContext.TryGetRequestHeader(Microsoft.AspNetCore.Http.HttpContext,System.String)">
+<summary>
+ **Description**
+
+ Tries to get the `string` value of a HTTP header from the request.
+
+ **Parameters**
+
+ `key`: The name of the HTTP header.
+
+ **Output**
+
+ Returns `Some string` if the HTTP header was present in the request, otherwise returns `None`.
+
+</summary>
+</member>
+<member name="M:Giraffe.Core.HttpContext.SetContentType(Microsoft.AspNetCore.Http.HttpContext,System.String)">
+<summary>
+ **Description**
+
+ Sets the `Content-Type` HTTP header in the response.
+
+ **Parameters**
+
+ `contentType`: The mime type of the response (e.g.: `application/json` or `text/html`).
+
+ **Output**
+
+ Returns `unit`.
+
+</summary>
+</member>
+<member name="M:Giraffe.Core.HttpContext.SetHttpHeader(Microsoft.AspNetCore.Http.HttpContext,System.String,System.Object)">
+<summary>
+ **Description**
+
+ Adds or sets a HTTP header in the response.
+
+ **Parameters**
+
+ `key`: The HTTP header name. For convenience you can use the static `Microsoft.Net.Http.Headers.HeaderNames` class for passing in strongly typed header names instead of using pure `string` values.
+ `value`: The value to be set. Non string values will be converted to a string using the object&apos;s `ToString()` method.
+
+ **Output**
+
+ Returns `unit`.
+
+</summary>
+</member>
+<member name="M:Giraffe.Core.HttpContext.SetStatusCode(Microsoft.AspNetCore.Http.HttpContext,System.Int32)">
+<summary>
+ **Description**
+
+ Sets the HTTP status code of the response.
+
+ **Parameters**
+
+ `httpStatusCode`: The status code to be set in the response. For convenience you can use the static `Microsoft.AspNetCore.Http.StatusCodes` class for passing in named status codes instead of using pure `int` values.
+
+ **Output**
+
+ Returns `unit`.
+
+</summary>
+</member>
+<member name="M:Giraffe.Core.HttpContext.GetXmlSerializer(Microsoft.AspNetCore.Http.HttpContext)">
+<summary>
+ **Description**
+
+ Gets an instance of `IXmlSerializer` from the request&apos;s service container.
+
+ **Output**
+
+ Returns an instance of `Giraffe.Serialization.Xml.IXmlSerializer`.
+
+</summary>
+</member>
+<member name="M:Giraffe.Core.HttpContext.GetJsonSerializer(Microsoft.AspNetCore.Http.HttpContext)">
+<summary>
+ **Description**
+
+ Gets an instance of `IJsonSerializer` from the request&apos;s service container.
+
+ **Output**
+
+ Returns an instance of `Giraffe.Serialization.Json.IJsonSerializer`.
+
+</summary>
+</member>
+<member name="M:Giraffe.Core.HttpContext.GetHostingEnvironment(Microsoft.AspNetCore.Http.HttpContext)">
+<summary>
+ **Description**
+
+ Gets an instance of `IHostingEnvironment` from the request&apos;s service container.
+
+ **Output**
+
+ Returns an instance of `IHostingEnvironment`.
+
+</summary>
+</member>
+<member name="M:Giraffe.Core.HttpContext.GetLogger(Microsoft.AspNetCore.Http.HttpContext,System.String)">
+<summary>
+ **Description**
+
+ Gets an instance of `ILogger` from the request&apos;s service container.
+
+ **Parameters**
+
+ `categoryName`: The category name for messages produced by this logger.
+
+ **Output**
+
+ Returns an instance of `ILogger`.
+
+</summary>
+</member>
+<member name="M:Giraffe.Core.HttpContext.GetLogger``1(Microsoft.AspNetCore.Http.HttpContext)">
+<summary>
+ **Description**
+
+ Gets an instance of `ILogger&lt;&apos;T&gt;` from the request&apos;s service container.
+
+ The type `&apos;T` should represent the class or module from where the logger gets instantiated.
+
+ **Output**
+
+ Returns an instance of `ILogger&lt;&apos;T&gt;`.
+
+</summary>
+</member>
+<member name="M:Giraffe.Core.HttpContext.GetService``1(Microsoft.AspNetCore.Http.HttpContext)">
+<summary>
+ **Description**
+
+ Gets an instance of `&apos;T` from the request&apos;s service container.
+
+ **Output**
+
+ Returns an instance of `&apos;T`.
+
+</summary>
+</member>
+<member name="M:Giraffe.Core.HttpContext.GetRequestUrl(Microsoft.AspNetCore.Http.HttpContext)">
+<summary>
+ **Description**
+
+ Returns the entire request URL in a fully escaped form, which is suitable for use in HTTP headers and other operations.
+
+ **Output**
+
+ Returns a `string` URL.
+
+</summary>
+</member>
+<member name="T:Giraffe.ResponseCaching.CacheDirective">
+<summary>
+ **Description**
+
+ Specifies the directive for the `Cache-Control` HTTP header:
+
+ `NoCache`: The resource should not be cached under any circumstances.
+ `Public`: Any client and proxy may cache the resource for the given amount of time.
+ `Private`: Only the end client may cache the resource for the given amount of time.
+
+</summary>
+</member>
+<member name="M:Giraffe.ResponseCaching.publicResponseCaching(System.Int32,Microsoft.FSharp.Core.FSharpOption{System.String})">
+<summary>
+ **Description**
+
+ Enables response caching for clients only.
+
+ The `responseCaching` http handler will set the relevant HTTP response headers in order to enable response caching on the client only.
+
+ **Parameters**
+
+ `seconds`: Specifies the duration (in seconds) for which the response may be cached.
+ `vary`: Optionally specify which HTTP headers have to match in order to return a cached response (e.g. `Accept` and/or `Accept-Encoding`).
+
+ **Output**
+
+ A Giraffe `HttpHandler` function which can be composed into a bigger web application.
+
+</summary>
+</member>
+<member name="M:Giraffe.ResponseCaching.privateResponseCaching(System.Int32,Microsoft.FSharp.Core.FSharpOption{System.String})">
+<summary>
+ **Description**
+
+ Enables response caching for clients and proxy servers.
+ This http handler integrates with ASP.NET Core&apos;s response caching middleware.
+
+ The `responseCaching` http handler will set the relevant HTTP response headers in order to enable response caching on the client, by proxies and by the ASP.NET Core middleware (if enabled).
+
+ **Parameters**
+
+ `seconds`: Specifies the duration (in seconds) for which the response may be cached.
+ `vary`: Optionally specify which HTTP headers have to match in order to return a cached response (e.g. `Accept` and/or `Accept-Encoding`).
+
+ **Output**
+
+ A Giraffe `HttpHandler` function which can be composed into a bigger web application.
+
+</summary>
+</member>
+<member name="P:Giraffe.ResponseCaching.noResponseCaching">
+<summary>
+ **Description**
+
+ Disables response caching by clients and proxy servers.
+
+ **Output**
+
+ A Giraffe `HttpHandler` function which can be composed into a bigger web application.
+
+</summary>
+</member>
+<member name="M:Giraffe.ResponseCaching.responseCaching(Giraffe.ResponseCaching.CacheDirective,Microsoft.FSharp.Core.FSharpOption{System.String},Microsoft.FSharp.Core.FSharpOption{System.String[]},Microsoft.FSharp.Core.FSharpFunc{Microsoft.AspNetCore.Http.HttpContext,System.Threading.Tasks.Task{Microsoft.FSharp.Core.FSharpOption{Microsoft.AspNetCore.Http.HttpContext}}},Microsoft.AspNetCore.Http.HttpContext)">
+<summary>
+ **Description**
+
+ Enables (or suppresses) response caching by clients and proxy servers.
+ This http handler integrates with ASP.NET Core&apos;s response caching middleware.
+
+ The `responseCaching` http handler will set the relevant HTTP response headers in order to enable response caching on the client, by proxies (if public) and by the ASP.NET Core middleware (if enabled).
+
+ **Parameters**
+
+ `directive`: Specifies the cache directive to be set in the response&apos;s HTTP headers. Use `NoCache` to suppress caching altogether or use `Public`/`Private` to enable caching for everyone or clients only.
+ `vary`: Optionally specify which HTTP headers have to match in order to return a cached response (e.g. `Accept` and/or `Accept-Encoding`).
+ `varyByQueryKeys`: An optional list of query keys which will be used by the ASP.NET Core response caching middleware to vary (potentially) cached responses. If this parameter is used then the ASP.NET Core response caching middleware has to be enabled. For more information check the official [VaryByQueryKeys](https://docs.microsoft.com/en-us/aspnet/core/performance/caching/middleware?view=aspnetcore-2.1#varybyquerykeys) documentation.
+
+ **Output**
+
+ A Giraffe `HttpHandler` function which can be composed into a bigger web application.
+
+</summary>
+</member>
+<member name="P:Giraffe.GiraffeViewEngine.str">
+<summary>
+ **Description**
+
+ An alias for the `encodedText` function.
+
+</summary>
+</member>
+<member name="M:Giraffe.GiraffeViewEngine.encodedText(System.String)">
+<summary>
+ **Description**
+
+ The `encodedText` function will output a string where the content has been HTML encoded.
+
+</summary>
+</member>
+<member name="M:Giraffe.GiraffeViewEngine.rawText(System.String)">
+<summary>
+ **Description**
+
+ The `rawText` function will create an object of type `XmlNode` where the content will be rendered in its original form (without encoding).
+
+ **Special Notice**
+
+ Please be aware that the the usage of `rawText` is mainly designed for edge cases where someone would purposefully want to inject HTML (or JavaScript) code into a rendered view. If not used carefully this could potentially lead to serious security vulnerabilities and therefore should be used only when explicitly required.
+
+ Most cases and particularly any user provided content should always be output via the `encodedText` function.
+
+</summary>
+</member>
+<member name="T:Giraffe.GiraffeViewEngine.Accessibility">
+<summary>
+ Attributes to support WAI-ARIA accessibility guidelines
+</summary>
+</member>
+<member name="M:Giraffe.ModelBinding.bindModel``1(Microsoft.FSharp.Core.FSharpOption{System.Globalization.CultureInfo},Microsoft.FSharp.Core.FSharpFunc{``0,Microsoft.FSharp.Core.FSharpFunc{Microsoft.FSharp.Core.FSharpFunc{Microsoft.AspNetCore.Http.HttpContext,System.Threading.Tasks.Task{Microsoft.FSharp.Core.FSharpOption{Microsoft.AspNetCore.Http.HttpContext}}},Microsoft.FSharp.Core.FSharpFunc{Microsoft.AspNetCore.Http.HttpContext,System.Threading.Tasks.Task{Microsoft.FSharp.Core.FSharpOption{Microsoft.AspNetCore.Http.HttpContext}}}}},Microsoft.FSharp.Core.FSharpFunc{Microsoft.AspNetCore.Http.HttpContext,System.Threading.Tasks.Task{Microsoft.FSharp.Core.FSharpOption{Microsoft.AspNetCore.Http.HttpContext}}},Microsoft.AspNetCore.Http.HttpContext)">
+<summary>
+ **Description**
+
+ Parses a HTTP payload into an instance of type `&apos;T`.
+
+ The model can be sent via XML, JSON, form or query string.
+
+ **Parameters**
+
+ `f`: A function which accepts an object of type `&apos;T` and returns a `HttpHandler` function.
+ `culture`: An optional `CultureInfo` element to be used when parsing culture specific data such as `float`, `DateTime` or `decimal` values.
+
+ **Output**
+
+ A Giraffe `HttpHandler` function which can be composed into a bigger web application.
+
+</summary>
+</member>
+<member name="M:Giraffe.ModelBinding.tryBindQuery``1(Microsoft.FSharp.Core.FSharpFunc{System.String,Microsoft.FSharp.Core.FSharpFunc{Microsoft.FSharp.Core.FSharpFunc{Microsoft.AspNetCore.Http.HttpContext,System.Threading.Tasks.Task{Microsoft.FSharp.Core.FSharpOption{Microsoft.AspNetCore.Http.HttpContext}}},Microsoft.FSharp.Core.FSharpFunc{Microsoft.AspNetCore.Http.HttpContext,System.Threading.Tasks.Task{Microsoft.FSharp.Core.FSharpOption{Microsoft.AspNetCore.Http.HttpContext}}}}},Microsoft.FSharp.Core.FSharpOption{System.Globalization.CultureInfo},Microsoft.FSharp.Core.FSharpFunc{``0,Microsoft.FSharp.Core.FSharpFunc{Microsoft.FSharp.Core.FSharpFunc{Microsoft.AspNetCore.Http.HttpContext,System.Threading.Tasks.Task{Microsoft.FSharp.Core.FSharpOption{Microsoft.AspNetCore.Http.HttpContext}}},Microsoft.FSharp.Core.FSharpFunc{Microsoft.AspNetCore.Http.HttpContext,System.Threading.Tasks.Task{Microsoft.FSharp.Core.FSharpOption{Microsoft.AspNetCore.Http.HttpContext}}}}},Microsoft.FSharp.Core.FSharpFunc{Microsoft.AspNetCore.Http.HttpContext,System.Threading.Tasks.Task{Microsoft.FSharp.Core.FSharpOption{Microsoft.AspNetCore.Http.HttpContext}}},Microsoft.AspNetCore.Http.HttpContext)">
+<summary>
+ **Description**
+
+ Tries to parse a query string into an instance of type `&apos;T`.
+
+ The query string must contain all non-optional properties of type `&apos;T` (with correct data) in order to successfully parse the query string. If some data is missing or wrong then the `parsingErrorHandler` function will be executed.
+
+ **Parameters**
+
+ `parsingErrorHandler`: A `HttpHandler` function which will get invoked when the model parsing fails. The `string` input parameter holds the parsing error message.
+ `culture`: An optional `CultureInfo` element to be used when parsing culture specific data such as `float`, `DateTime` or `decimal` values.
+ `successHandler`: A function which accepts an object of type `&apos;T` and returns a `HttpHandler` function.
+
+ **Output**
+
+ A Giraffe `HttpHandler` function which can be composed into a bigger web application.
+
+</summary>
+</member>
+<member name="M:Giraffe.ModelBinding.bindQuery``1(Microsoft.FSharp.Core.FSharpOption{System.Globalization.CultureInfo},Microsoft.FSharp.Core.FSharpFunc{``0,Microsoft.FSharp.Core.FSharpFunc{Microsoft.FSharp.Core.FSharpFunc{Microsoft.AspNetCore.Http.HttpContext,System.Threading.Tasks.Task{Microsoft.FSharp.Core.FSharpOption{Microsoft.AspNetCore.Http.HttpContext}}},Microsoft.FSharp.Core.FSharpFunc{Microsoft.AspNetCore.Http.HttpContext,System.Threading.Tasks.Task{Microsoft.FSharp.Core.FSharpOption{Microsoft.AspNetCore.Http.HttpContext}}}}},Microsoft.FSharp.Core.FSharpFunc{Microsoft.AspNetCore.Http.HttpContext,System.Threading.Tasks.Task{Microsoft.FSharp.Core.FSharpOption{Microsoft.AspNetCore.Http.HttpContext}}},Microsoft.AspNetCore.Http.HttpContext)">
+<summary>
+ **Description**
+
+ Parses a HTTP query string into an instance of type `&apos;T`.
+
+ **Parameters**
+
+ `f`: A function which accepts an object of type `&apos;T` and returns a `HttpHandler` function.
+ `culture`: An optional `CultureInfo` element to be used when parsing culture specific data such as `float`, `DateTime` or `decimal` values.
+
+ **Output**
+
+ A Giraffe `HttpHandler` function which can be composed into a bigger web application.
+
+</summary>
+</member>
+<member name="M:Giraffe.ModelBinding.tryBindForm``1(Microsoft.FSharp.Core.FSharpFunc{System.String,Microsoft.FSharp.Core.FSharpFunc{Microsoft.FSharp.Core.FSharpFunc{Microsoft.AspNetCore.Http.HttpContext,System.Threading.Tasks.Task{Microsoft.FSharp.Core.FSharpOption{Microsoft.AspNetCore.Http.HttpContext}}},Microsoft.FSharp.Core.FSharpFunc{Microsoft.AspNetCore.Http.HttpContext,System.Threading.Tasks.Task{Microsoft.FSharp.Core.FSharpOption{Microsoft.AspNetCore.Http.HttpContext}}}}},Microsoft.FSharp.Core.FSharpOption{System.Globalization.CultureInfo},Microsoft.FSharp.Core.FSharpFunc{``0,Microsoft.FSharp.Core.FSharpFunc{Microsoft.FSharp.Core.FSharpFunc{Microsoft.AspNetCore.Http.HttpContext,System.Threading.Tasks.Task{Microsoft.FSharp.Core.FSharpOption{Microsoft.AspNetCore.Http.HttpContext}}},Microsoft.FSharp.Core.FSharpFunc{Microsoft.AspNetCore.Http.HttpContext,System.Threading.Tasks.Task{Microsoft.FSharp.Core.FSharpOption{Microsoft.AspNetCore.Http.HttpContext}}}}},Microsoft.FSharp.Core.FSharpFunc{Microsoft.AspNetCore.Http.HttpContext,System.Threading.Tasks.Task{Microsoft.FSharp.Core.FSharpOption{Microsoft.AspNetCore.Http.HttpContext}}},Microsoft.AspNetCore.Http.HttpContext)">
+<summary>
+ **Description**
+
+ Tries to parse a HTTP form payload into an instance of type `&apos;T`.
+
+ The payload must contain all non-optional properties of type `&apos;T` (with correct data) in order to successfully parse the form data. If some data is missing or wrong then the `parsingErrorHandler` will be executed.
+
+ **Parameters**
+
+ `parsingErrorHandler`: A `string -&gt; HttpHandler` function which will get invoked when the model parsing fails. The `string` parameter holds the parsing error message.
+ `culture`: An optional `CultureInfo` element to be used when parsing culture specific data such as `float`, `DateTime` or `decimal` values.
+ `successHandler`: A function which accepts an object of type `&apos;T` and returns a `HttpHandler` function.
+
+ **Output**
+
+ A Giraffe `HttpHandler` function which can be composed into a bigger web application.
+
+</summary>
+</member>
+<member name="M:Giraffe.ModelBinding.bindForm``1(Microsoft.FSharp.Core.FSharpOption{System.Globalization.CultureInfo},Microsoft.FSharp.Core.FSharpFunc{``0,Microsoft.FSharp.Core.FSharpFunc{Microsoft.FSharp.Core.FSharpFunc{Microsoft.AspNetCore.Http.HttpContext,System.Threading.Tasks.Task{Microsoft.FSharp.Core.FSharpOption{Microsoft.AspNetCore.Http.HttpContext}}},Microsoft.FSharp.Core.FSharpFunc{Microsoft.AspNetCore.Http.HttpContext,System.Threading.Tasks.Task{Microsoft.FSharp.Core.FSharpOption{Microsoft.AspNetCore.Http.HttpContext}}}}},Microsoft.FSharp.Core.FSharpFunc{Microsoft.AspNetCore.Http.HttpContext,System.Threading.Tasks.Task{Microsoft.FSharp.Core.FSharpOption{Microsoft.AspNetCore.Http.HttpContext}}},Microsoft.AspNetCore.Http.HttpContext)">
+<summary>
+ **Description**
+
+ Parses a HTTP form payload into an instance of type `&apos;T`.
+
+ **Parameters**
+
+ `f`: A function which accepts an object of type `&apos;T` and returns a `HttpHandler` function.
+ `culture`: An optional `CultureInfo` element to be used when parsing culture specific data such as `float`, `DateTime` or `decimal` values.
+
+ **Output**
+
+ A Giraffe `HttpHandler` function which can be composed into a bigger web application.
+
+</summary>
+</member>
+<member name="M:Giraffe.ModelBinding.bindXml``1(Microsoft.FSharp.Core.FSharpFunc{``0,Microsoft.FSharp.Core.FSharpFunc{Microsoft.FSharp.Core.FSharpFunc{Microsoft.AspNetCore.Http.HttpContext,System.Threading.Tasks.Task{Microsoft.FSharp.Core.FSharpOption{Microsoft.AspNetCore.Http.HttpContext}}},Microsoft.FSharp.Core.FSharpFunc{Microsoft.AspNetCore.Http.HttpContext,System.Threading.Tasks.Task{Microsoft.FSharp.Core.FSharpOption{Microsoft.AspNetCore.Http.HttpContext}}}}},Microsoft.FSharp.Core.FSharpFunc{Microsoft.AspNetCore.Http.HttpContext,System.Threading.Tasks.Task{Microsoft.FSharp.Core.FSharpOption{Microsoft.AspNetCore.Http.HttpContext}}},Microsoft.AspNetCore.Http.HttpContext)">
+<summary>
+ **Description**
+
+ Parses an XML payload into an instance of type `&apos;T`.
+
+ **Parameters**
+
+ `f`: A function which accepts an object of type `&apos;T` and returns a `HttpHandler` function.
+
+ **Output**
+
+ A Giraffe `HttpHandler` function which can be composed into a bigger web application.
+
+</summary>
+</member>
+<member name="M:Giraffe.ModelBinding.bindJson``1(Microsoft.FSharp.Core.FSharpFunc{``0,Microsoft.FSharp.Core.FSharpFunc{Microsoft.FSharp.Core.FSharpFunc{Microsoft.AspNetCore.Http.HttpContext,System.Threading.Tasks.Task{Microsoft.FSharp.Core.FSharpOption{Microsoft.AspNetCore.Http.HttpContext}}},Microsoft.FSharp.Core.FSharpFunc{Microsoft.AspNetCore.Http.HttpContext,System.Threading.Tasks.Task{Microsoft.FSharp.Core.FSharpOption{Microsoft.AspNetCore.Http.HttpContext}}}}},Microsoft.FSharp.Core.FSharpFunc{Microsoft.AspNetCore.Http.HttpContext,System.Threading.Tasks.Task{Microsoft.FSharp.Core.FSharpOption{Microsoft.AspNetCore.Http.HttpContext}}},Microsoft.AspNetCore.Http.HttpContext)">
+<summary>
+ **Description**
+
+ Parses a JSON payload into an instance of type `&apos;T`.
+
+ **Parameters**
+
+ `f`: A function which accepts an object of type `&apos;T` and returns a `HttpHandler` function.
+
+ **Output**
+
+ A Giraffe `HttpHandler` function which can be composed into a bigger web application.
+
+</summary>
+</member>
+<member name="M:Giraffe.ModelBinding.HttpContext.BindModelAsync``1(Microsoft.AspNetCore.Http.HttpContext,Microsoft.FSharp.Core.FSharpOption{System.Globalization.CultureInfo})">
+<summary>
+ **Description**
+
+ Parses the request body into an object of type `&apos;T` based on the request&apos;s `Content-Type` header.
+
+ **Parameters**
+
+ `cultureInfo`: An optional `CultureInfo` element which will be used to parse culture specific data such as `float`, `DateTime` or `decimal` values.
+
+ **Output**
+
+ Returns a `Task&lt;&apos;T&gt;`.
+
+</summary>
+</member>
+<member name="M:Giraffe.ModelBinding.HttpContext.TryBindQueryString``1(Microsoft.AspNetCore.Http.HttpContext,Microsoft.FSharp.Core.FSharpOption{System.Globalization.CultureInfo})">
+<summary>
+ **Description**
+
+ Tries to parse all parameters of a request&apos;s query string into an object of type `&apos;T`.
+
+ **Parameters**
+
+ `cultureInfo`: An optional `CultureInfo` element which will be used to parse culture specific data such as `float`, `DateTime` or `decimal` values.
+
+ **Output**
+
+ Returns an object `&apos;T` if model binding succeeded, otherwise a `string` message containing the specific model parsing error.
+
+</summary>
+</member>
+<member name="M:Giraffe.ModelBinding.HttpContext.BindQueryString``1(Microsoft.AspNetCore.Http.HttpContext,Microsoft.FSharp.Core.FSharpOption{System.Globalization.CultureInfo})">
+<summary>
+ **Description**
+
+ Parses all parameters of a request&apos;s query string into an object of type `&apos;T`.
+
+ **Parameters**
+
+ `cultureInfo`: An optional `CultureInfo` element which will be used to parse culture specific data such as `float`, `DateTime` or `decimal` values.
+
+ **Output**
+
+ Returns an instance of type `&apos;T`.
+
+</summary>
+</member>
+<member name="M:Giraffe.ModelBinding.HttpContext.TryBindFormAsync``1(Microsoft.AspNetCore.Http.HttpContext,Microsoft.FSharp.Core.FSharpOption{System.Globalization.CultureInfo})">
+<summary>
+ **Description**
+
+ Tries to parse all input elements from an HTML form into an object of type `&apos;T`.
+
+ **Parameters**
+
+ `cultureInfo`: An optional `CultureInfo` element which will be used to parse culture specific data such as `float`, `DateTime` or `decimal` values.
+
+ **Output**
+
+ Returns an object `&apos;T` if model binding succeeded, otherwise a `string` message containing the specific model parsing error.
+
+</summary>
+</member>
+<member name="M:Giraffe.ModelBinding.HttpContext.BindFormAsync``1(Microsoft.AspNetCore.Http.HttpContext,Microsoft.FSharp.Core.FSharpOption{System.Globalization.CultureInfo})">
+<summary>
+ **Description**
+
+ Parses all input elements from an HTML form into an object of type `&apos;T`.
+
+ **Parameters**
+
+ `cultureInfo`: An optional `CultureInfo` element which will be used to parse culture specific data such as `float`, `DateTime` or `decimal` values.
+
+ **Output**
+
+ Returns a `Task&lt;&apos;T&gt;`.
+
+</summary>
+</member>
+<member name="M:Giraffe.ModelBinding.HttpContext.BindXmlAsync``1(Microsoft.AspNetCore.Http.HttpContext)">
+<summary>
+ **Description**
+
+ Uses the `IXmlSerializer` to deserializes the entire body of the `HttpRequest` asynchronously into an object of type `&apos;T`.
+
+ **Output**
+
+ Returns a `Task&lt;&apos;T&gt;`.
+
+</summary>
+</member>
+<member name="M:Giraffe.ModelBinding.HttpContext.BindJsonAsync``1(Microsoft.AspNetCore.Http.HttpContext)">
+<summary>
+ **Description**
+
+ Uses the `IJsonSerializer` to deserializes the entire body of the `HttpRequest` asynchronously into an object of type `&apos;T`.
+
+ **Output**
+
+ Returns a `Task&lt;&apos;T&gt;`.
+
+</summary>
+</member>
+<member name="M:Giraffe.ModelBinding.HttpContext.ReadBodyFromRequestAsync(Microsoft.AspNetCore.Http.HttpContext)">
+<summary>
+ **Description**
+
+ Reads the entire body of the `HttpRequest` asynchronously and returns it as a `string` value.
+
+ **Output**
+
+ Returns the contents of the request body as a `Task&lt;string&gt;`.
+
+</summary>
+</member>
+<member name="M:Giraffe.ModelBinding.ModelParser.parse``1(Microsoft.FSharp.Core.FSharpOption{System.Globalization.CultureInfo},System.Collections.Generic.IDictionary{System.String,Microsoft.Extensions.Primitives.StringValues})">
+<summary>
+ **Description**
+
+ Create an instance of type `&apos;T` from a given set of `data`.
+
+ It will try to match each property of `&apos;T` with a key from the `data` dictionary and parse the associated value to the value of `&apos;T`&apos;s property. If a property is missing from the `data` set or cannot be parsed then it will be omitted and a default value will be set (either `null` for reference types or a default value for value types).
+
+ **Parameters**
+
+ `culture`: An optional `CultureInfo` element to be used when parsing culture specific data such as `float`, `DateTime` or `decimal` values.
+ `data`: A key-value dictionary of values for each property of type `&apos;T`.
+
+ **Output**
+
+ An instance of type `&apos;T`. Not all properties might be set. Null checks are required for reference types.
+
+</summary>
+</member>
+<member name="M:Giraffe.ModelBinding.ModelParser.tryParse``1(Microsoft.FSharp.Core.FSharpOption{System.Globalization.CultureInfo},System.Collections.Generic.IDictionary{System.String,Microsoft.Extensions.Primitives.StringValues})">
+<summary>
+ **Description**
+
+ Tries to create an instance of type `&apos;T` from a given set of `data`.
+
+ It will try to match each property of `&apos;T` with a key from the `data` dictionary and parse the associated value to the value of `&apos;T`&apos;s property.
+
+ **Parameters**
+
+ `culture`: An optional `CultureInfo` element to be used when parsing culture specific data such as `float`, `DateTime` or `decimal` values.
+ `data`: A key-value dictionary of values for each property of type `&apos;T`. Only optional properties can be omitted from the dictionary.
+
+ **Output**
+
+ If all properties were able to successfully parse then `Some &apos;T` will be returned, otherwise `None`.
+
+</summary>
+</member>
+<member name="M:Giraffe.ModelBinding.ModelParser.parseValue(System.Type,Microsoft.Extensions.Primitives.StringValues,System.Globalization.CultureInfo)">
+<summary>
+ Returns either a successfully parsed object `&apos;T` or a `string` error message containing the parsing error.
+</summary>
+</member>
+<member name="M:Giraffe.ModelBinding.ModelParser.getValueForMissingProperty(System.Type)">
+<summary>
+ Returns a value (the None union case) if the type is `Option&lt;&apos;T&gt;` otherwise `None`.
+</summary>
+</member>
+<member name="T:Giraffe.ModelBinding.ModelParser">
+<summary>
+ **Description**
+
+ Module for parsing models from a generic data set.
+
+</summary>
+</member>
+<member name="M:Giraffe.ModelValidation.IModelValidation`1.Validate">
+<summary>
+ **Description**
+
+ Contract for validating an object&apos;s state.
+
+ If the object has a valid state then the function should return the object, otherwise it should return a `HttpHandler` function which is ought to return an error response back to a client.
+
+</summary>
+</member>
+<member name="T:Giraffe.ModelValidation.IModelValidation`1">
+<summary>
+ **Description**
+
+ Interface defining model validation methods.
+
+</summary>
+</member>
+<member name="M:Giraffe.ModelValidation.validateModel``1(Microsoft.FSharp.Core.FSharpFunc{``0,Microsoft.FSharp.Core.FSharpFunc{Microsoft.FSharp.Core.FSharpFunc{Microsoft.AspNetCore.Http.HttpContext,System.Threading.Tasks.Task{Microsoft.FSharp.Core.FSharpOption{Microsoft.AspNetCore.Http.HttpContext}}},Microsoft.FSharp.Core.FSharpFunc{Microsoft.AspNetCore.Http.HttpContext,System.Threading.Tasks.Task{Microsoft.FSharp.Core.FSharpOption{Microsoft.AspNetCore.Http.HttpContext}}}}},``0)">
+<summary>
+ **Description**
+
+ Validates an object of type `&apos;T` where `&apos;T` must have implemented interface `IModelValidation&lt;&apos;T&gt;`.
+
+ If validation was successful then object `&apos;T` will be passed into the `HttpHandler` function `f`, otherwise an error response will be sent back to the client.
+
+ **Parameters**
+
+ `f`: A function which accepts the model `&apos;T` and returns a `HttpHandler` function.
+ `model`: An instance of type `&apos;T`, where `&apos;T` must implement interface `IModelValidation&lt;&apos;T&gt;`.
+
+ **Output**
+
+ A Giraffe `HttpHandler` function which can be composed into a bigger web application.
+
+</summary>
+</member>
+<member name="M:Giraffe.Auth.authorizeByPolicy(Microsoft.AspNetCore.Authorization.AuthorizationPolicy,Microsoft.FSharp.Core.FSharpFunc{Microsoft.FSharp.Core.FSharpFunc{Microsoft.AspNetCore.Http.HttpContext,System.Threading.Tasks.Task{Microsoft.FSharp.Core.FSharpOption{Microsoft.AspNetCore.Http.HttpContext}}},Microsoft.FSharp.Core.FSharpFunc{Microsoft.AspNetCore.Http.HttpContext,System.Threading.Tasks.Task{Microsoft.FSharp.Core.FSharpOption{Microsoft.AspNetCore.Http.HttpContext}}}},Microsoft.FSharp.Core.FSharpFunc{Microsoft.AspNetCore.Http.HttpContext,System.Threading.Tasks.Task{Microsoft.FSharp.Core.FSharpOption{Microsoft.AspNetCore.Http.HttpContext}}},Microsoft.AspNetCore.Http.HttpContext)">
+<summary>
+ **Description**
+
+ Validates if a user meets a given authorization policy.
+
+ **Parameters**
+
+ `policy`: An `AuthorizationPolicy` which a user must meet in order to pass the validation.
+ `authFailedHandler`: A `HttpHandler` function which will be executed when validation fails.
+
+ **Output**
+
+ A Giraffe `HttpHandler` function which can be composed into a bigger web application.
+
+</summary>
+</member>
+<member name="M:Giraffe.Auth.authorizeByPolicyName(System.String,Microsoft.FSharp.Core.FSharpFunc{Microsoft.FSharp.Core.FSharpFunc{Microsoft.AspNetCore.Http.HttpContext,System.Threading.Tasks.Task{Microsoft.FSharp.Core.FSharpOption{Microsoft.AspNetCore.Http.HttpContext}}},Microsoft.FSharp.Core.FSharpFunc{Microsoft.AspNetCore.Http.HttpContext,System.Threading.Tasks.Task{Microsoft.FSharp.Core.FSharpOption{Microsoft.AspNetCore.Http.HttpContext}}}},Microsoft.FSharp.Core.FSharpFunc{Microsoft.AspNetCore.Http.HttpContext,System.Threading.Tasks.Task{Microsoft.FSharp.Core.FSharpOption{Microsoft.AspNetCore.Http.HttpContext}}},Microsoft.AspNetCore.Http.HttpContext)">
+<summary>
+ **Description**
+
+ Validates if a user meets a given authorization policy.
+
+ **Parameters**
+
+ `policyName`: The name of an `AuthorizationPolicy` which a user must meet in order to pass the validation.
+ `authFailedHandler`: A `HttpHandler` function which will be executed when validation fails.
+
+ **Output**
+
+ A Giraffe `HttpHandler` function which can be composed into a bigger web application.
+
+</summary>
+</member>
+<member name="M:Giraffe.Auth.requiresRoleOf(Microsoft.FSharp.Collections.FSharpList{System.String},Microsoft.FSharp.Core.FSharpFunc{Microsoft.FSharp.Core.FSharpFunc{Microsoft.AspNetCore.Http.HttpContext,System.Threading.Tasks.Task{Microsoft.FSharp.Core.FSharpOption{Microsoft.AspNetCore.Http.HttpContext}}},Microsoft.FSharp.Core.FSharpFunc{Microsoft.AspNetCore.Http.HttpContext,System.Threading.Tasks.Task{Microsoft.FSharp.Core.FSharpOption{Microsoft.AspNetCore.Http.HttpContext}}}})">
+<summary>
+ **Description**
+
+ Validates if a user is a member of at least one of a given list of roles.
+
+ **Parameters**
+
+ `roles`: A list of roles of which a user must be a member of (minimum one) in order to pass the validation.
+ `authFailedHandler`: A `HttpHandler` function which will be executed when validation fails.
+
+ **Output**
+
+ A Giraffe `HttpHandler` function which can be composed into a bigger web application.
+
+</summary>
+</member>
+<member name="M:Giraffe.Auth.requiresRole(System.String,Microsoft.FSharp.Core.FSharpFunc{Microsoft.FSharp.Core.FSharpFunc{Microsoft.AspNetCore.Http.HttpContext,System.Threading.Tasks.Task{Microsoft.FSharp.Core.FSharpOption{Microsoft.AspNetCore.Http.HttpContext}}},Microsoft.FSharp.Core.FSharpFunc{Microsoft.AspNetCore.Http.HttpContext,System.Threading.Tasks.Task{Microsoft.FSharp.Core.FSharpOption{Microsoft.AspNetCore.Http.HttpContext}}}})">
+<summary>
+ **Description**
+
+ Validates if a user is a member of a specific role.
+
+ **Parameters**
+
+ `role`: The required role of which a user must be a member of in order to pass the validation.
+ `authFailedHandler`: A `HttpHandler` function which will be executed when validation fails.
+
+ **Output**
+
+ A Giraffe `HttpHandler` function which can be composed into a bigger web application.
+
+</summary>
+</member>
+<member name="M:Giraffe.Auth.requiresAuthentication(Microsoft.FSharp.Core.FSharpFunc{Microsoft.FSharp.Core.FSharpFunc{Microsoft.AspNetCore.Http.HttpContext,System.Threading.Tasks.Task{Microsoft.FSharp.Core.FSharpOption{Microsoft.AspNetCore.Http.HttpContext}}},Microsoft.FSharp.Core.FSharpFunc{Microsoft.AspNetCore.Http.HttpContext,System.Threading.Tasks.Task{Microsoft.FSharp.Core.FSharpOption{Microsoft.AspNetCore.Http.HttpContext}}}})">
+<summary>
+ **Description**
+
+ Validates if a user has successfully authenticated. This function checks if the auth middleware was able to establish a user&apos;s identity by validating certain parts of the HTTP request (e.g. a cookie or a token) and set the `User` object of the `HttpContext`.
+
+ **Parameters**
+
+ `authFailedHandler`: A `HttpHandler` function which will be executed when authentication failed.
+
+ **Output**
+
+ A Giraffe `HttpHandler` function which can be composed into a bigger web application.
+
+</summary>
+</member>
+<member name="P:Giraffe.Auth.authorizeUser">
+<summary>
+ **Description**
+
+ Validates if a `ClaimsPrincipal` satisfies a certain condition. If the `policy` returns `true` then it will continue with the `next` function otherwise it will short circuit and execute the `authFailedHandler`.
+
+ **Parameters**
+
+ `policy`: One or many conditions which a `ClaimsPrincipal` must meet. The `policy` function should return `true` on success and `false` on failure.
+ `authFailedHandler`: A `HttpHandler` function which will be executed when the `policy` returns `false`.
+
+ **Output**
+
+ A Giraffe `HttpHandler` function which can be composed into a bigger web application.
+
+</summary>
+</member>
+<member name="M:Giraffe.Auth.evaluateUserPolicy(Microsoft.FSharp.Core.FSharpFunc{System.Security.Claims.ClaimsPrincipal,System.Boolean},Microsoft.FSharp.Core.FSharpFunc{Microsoft.FSharp.Core.FSharpFunc{Microsoft.AspNetCore.Http.HttpContext,System.Threading.Tasks.Task{Microsoft.FSharp.Core.FSharpOption{Microsoft.AspNetCore.Http.HttpContext}}},Microsoft.FSharp.Core.FSharpFunc{Microsoft.AspNetCore.Http.HttpContext,System.Threading.Tasks.Task{Microsoft.FSharp.Core.FSharpOption{Microsoft.AspNetCore.Http.HttpContext}}}})">
+<summary>
+ **Description**
+
+ Validates if a `ClaimsPrincipal` satisfies a certain condition. If the `policy` returns `true` then it will continue with the `next` function otherwise it will short circuit and execute the `authFailedHandler`.
+
+ **Parameters**
+
+ `policy`: One or many conditions which a `ClaimsPrincipal` must meet. The `policy` function should return `true` on success and `false` on failure.
+ `authFailedHandler`: A `HttpHandler` function which will be executed when the `policy` returns `false`.
+
+ **Output**
+
+ A Giraffe `HttpHandler` function which can be composed into a bigger web application.
+
+</summary>
+</member>
+<member name="M:Giraffe.Auth.authorizeRequest(Microsoft.FSharp.Core.FSharpFunc{Microsoft.AspNetCore.Http.HttpContext,System.Boolean},Microsoft.FSharp.Core.FSharpFunc{Microsoft.FSharp.Core.FSharpFunc{Microsoft.AspNetCore.Http.HttpContext,System.Threading.Tasks.Task{Microsoft.FSharp.Core.FSharpOption{Microsoft.AspNetCore.Http.HttpContext}}},Microsoft.FSharp.Core.FSharpFunc{Microsoft.AspNetCore.Http.HttpContext,System.Threading.Tasks.Task{Microsoft.FSharp.Core.FSharpOption{Microsoft.AspNetCore.Http.HttpContext}}}},Microsoft.FSharp.Core.FSharpFunc{Microsoft.AspNetCore.Http.HttpContext,System.Threading.Tasks.Task{Microsoft.FSharp.Core.FSharpOption{Microsoft.AspNetCore.Http.HttpContext}}},Microsoft.AspNetCore.Http.HttpContext)">
+<summary>
+ **Description**
+
+ Validates if a `HttpContext` satisfies a certain condition. If the `policy` returns `true` then it will continue with the `next` function otherwise it will short circuit and execute the `authFailedHandler`.
+
+ **Parameters**
+
+ `policy`: One or many conditions which a `HttpContext` must meet. The `policy` function should return `true` on success and `false` on failure.
+ `authFailedHandler`: A `HttpHandler` function which will be executed when the `policy` returns `false`.
+
+ **Output**
+
+ A Giraffe `HttpHandler` function which can be composed into a bigger web application.
+
+</summary>
+</member>
+<member name="M:Giraffe.Auth.signOut(System.String,Microsoft.FSharp.Core.FSharpFunc{Microsoft.AspNetCore.Http.HttpContext,System.Threading.Tasks.Task{Microsoft.FSharp.Core.FSharpOption{Microsoft.AspNetCore.Http.HttpContext}}},Microsoft.AspNetCore.Http.HttpContext)">
+<summary>
+ **Description**
+
+ Signs out the currently logged in user via the provided `authScheme`.
+
+ **Parameters**
+
+ `authScheme`: The name of an authentication scheme from your application.
+
+ **Output**
+
+ A Giraffe `HttpHandler` function which can be composed into a bigger web application.
+
+</summary>
+</member>
+<member name="M:Giraffe.Auth.challenge(System.String,Microsoft.FSharp.Core.FSharpFunc{Microsoft.AspNetCore.Http.HttpContext,System.Threading.Tasks.Task{Microsoft.FSharp.Core.FSharpOption{Microsoft.AspNetCore.Http.HttpContext}}},Microsoft.AspNetCore.Http.HttpContext)">
+<summary>
+ **Description**
+
+ Challenges a client to authenticate via a specific `authScheme`.
+
+ **Parameters**
+
+ `authScheme`: The name of an authentication scheme from your application.
+
+ **Output**
+
+ A Giraffe `HttpHandler` function which can be composed into a bigger web application.
+
+</summary>
+</member>
+<member name="M:Giraffe.Routing.subRoutef``5(Microsoft.FSharp.Core.PrintfFormat{``0,``1,``2,``3,``4},Microsoft.FSharp.Core.FSharpFunc{``4,Microsoft.FSharp.Core.FSharpFunc{Microsoft.FSharp.Core.FSharpFunc{Microsoft.AspNetCore.Http.HttpContext,System.Threading.Tasks.Task{Microsoft.FSharp.Core.FSharpOption{Microsoft.AspNetCore.Http.HttpContext}}},Microsoft.FSharp.Core.FSharpFunc{Microsoft.AspNetCore.Http.HttpContext,System.Threading.Tasks.Task{Microsoft.FSharp.Core.FSharpOption{Microsoft.AspNetCore.Http.HttpContext}}}}})">
+<summary>
+ **Description**
+
+ Filters an incoming HTTP request based on a part of the request path (case sensitive).
+
+ If the sub route matches the incoming HTTP request then the arguments from the `PrintfFormat&lt;...&gt;` will be automatically resolved and passed into the supplied `routeHandler`.
+
+ **Supported format chars**
+
+ `%b`: `bool`
+ `%c`: `char`
+ `%s`: `string`
+ `%i`: `int`
+ `%d`: `int64`
+ `%f`: `float`/`double`
+ `%O`: `Guid`
+
+ Subsequent routing handlers inside the given `handler` function should omit the already validated path.
+
+ **Parameters**
+
+ `path`: A format string representing the expected request sub path.
+ `routeHandler`: A function which accepts a tuple `&apos;T` of the parsed arguments and returns a `HttpHandler` function which will subsequently deal with the request.
+
+ **Output**
+
+ A Giraffe `HttpHandler` function which can be composed into a bigger web application.
+
+</summary>
+</member>
+<member name="M:Giraffe.Routing.subRouteCi(System.String,Microsoft.FSharp.Core.FSharpFunc{Microsoft.FSharp.Core.FSharpFunc{Microsoft.AspNetCore.Http.HttpContext,System.Threading.Tasks.Task{Microsoft.FSharp.Core.FSharpOption{Microsoft.AspNetCore.Http.HttpContext}}},Microsoft.FSharp.Core.FSharpFunc{Microsoft.AspNetCore.Http.HttpContext,System.Threading.Tasks.Task{Microsoft.FSharp.Core.FSharpOption{Microsoft.AspNetCore.Http.HttpContext}}}},Microsoft.FSharp.Core.FSharpFunc{Microsoft.AspNetCore.Http.HttpContext,System.Threading.Tasks.Task{Microsoft.FSharp.Core.FSharpOption{Microsoft.AspNetCore.Http.HttpContext}}},Microsoft.AspNetCore.Http.HttpContext)">
+<summary>
+ **Description**
+
+ Filters an incoming HTTP request based on a part of the request path (case insensitive).
+
+ Subsequent route handlers inside the given `handler` function should omit the already validated path.
+
+ **Parameters**
+
+ `path`: A part of an expected request path.
+
+ **Output**
+
+ A Giraffe `HttpHandler` function which can be composed into a bigger web application.
+
+</summary>
+</member>
+<member name="M:Giraffe.Routing.subRoute(System.String,Microsoft.FSharp.Core.FSharpFunc{Microsoft.FSharp.Core.FSharpFunc{Microsoft.AspNetCore.Http.HttpContext,System.Threading.Tasks.Task{Microsoft.FSharp.Core.FSharpOption{Microsoft.AspNetCore.Http.HttpContext}}},Microsoft.FSharp.Core.FSharpFunc{Microsoft.AspNetCore.Http.HttpContext,System.Threading.Tasks.Task{Microsoft.FSharp.Core.FSharpOption{Microsoft.AspNetCore.Http.HttpContext}}}})">
+<summary>
+ **Description**
+
+ Filters an incoming HTTP request based on a part of the request path (case sensitive).
+
+ Subsequent routing handlers inside the given `handler` function should omit the already validated path.
+
+ **Parameters**
+
+ `path`: A part of an expected request path.
+
+ **Output**
+
+ A Giraffe `HttpHandler` function which can be composed into a bigger web application.
+
+</summary>
+</member>
+<member name="M:Giraffe.Routing.routeStartsWithCif``5(Microsoft.FSharp.Core.PrintfFormat{``0,``1,``2,``3,``4},Microsoft.FSharp.Core.FSharpFunc{``4,Microsoft.FSharp.Core.FSharpFunc{Microsoft.FSharp.Core.FSharpFunc{Microsoft.AspNetCore.Http.HttpContext,System.Threading.Tasks.Task{Microsoft.FSharp.Core.FSharpOption{Microsoft.AspNetCore.Http.HttpContext}}},Microsoft.FSharp.Core.FSharpFunc{Microsoft.AspNetCore.Http.HttpContext,System.Threading.Tasks.Task{Microsoft.FSharp.Core.FSharpOption{Microsoft.AspNetCore.Http.HttpContext}}}}})">
+<summary>
+ **Description**
+
+ Filters an incoming HTTP request based on the beginning of the request path (case insensitive).
+
+ If the route matches the incoming HTTP request then the arguments from the `PrintfFormat&lt;...&gt;` will be automatically resolved and passed into the supplied `routeHandler`.
+
+ **Supported format chars**
+
+ `%b`: `bool`
+ `%c`: `char`
+ `%s`: `string`
+ `%i`: `int`
+ `%d`: `int64`
+ `%f`: `float`/`double`
+ `%O`: `Guid`
+
+ **Parameters**
+
+ `path`: A format string representing the expected request path.
+ `routeHandler`: A function which accepts a tuple `&apos;T` of the parsed arguments and returns a `HttpHandler` function which will subsequently deal with the request.
+
+ **Output**
+
+ A Giraffe `HttpHandler` function which can be composed into a bigger web application.
+
+</summary>
+</member>
+<member name="M:Giraffe.Routing.routeStartsWithf``5(Microsoft.FSharp.Core.PrintfFormat{``0,``1,``2,``3,``4},Microsoft.FSharp.Core.FSharpFunc{``4,Microsoft.FSharp.Core.FSharpFunc{Microsoft.FSharp.Core.FSharpFunc{Microsoft.AspNetCore.Http.HttpContext,System.Threading.Tasks.Task{Microsoft.FSharp.Core.FSharpOption{Microsoft.AspNetCore.Http.HttpContext}}},Microsoft.FSharp.Core.FSharpFunc{Microsoft.AspNetCore.Http.HttpContext,System.Threading.Tasks.Task{Microsoft.FSharp.Core.FSharpOption{Microsoft.AspNetCore.Http.HttpContext}}}}})">
+<summary>
+ **Description**
+
+ Filters an incoming HTTP request based on the beginning of the request path (case sensitive).
+
+ If the route matches the incoming HTTP request then the arguments from the `PrintfFormat&lt;...&gt;` will be automatically resolved and passed into the supplied `routeHandler`.
+
+ **Supported format chars**
+
+ `%b`: `bool`
+ `%c`: `char`
+ `%s`: `string`
+ `%i`: `int`
+ `%d`: `int64`
+ `%f`: `float`/`double`
+ `%O`: `Guid`
+
+ **Parameters**
+
+ `path`: A format string representing the expected request path.
+ `routeHandler`: A function which accepts a tuple `&apos;T` of the parsed arguments and returns a `HttpHandler` function which will subsequently deal with the request.
+
+ **Output**
+
+ A Giraffe `HttpHandler` function which can be composed into a bigger web application.
+
+</summary>
+</member>
+<member name="M:Giraffe.Routing.routeStartsWithCi(System.String,Microsoft.FSharp.Core.FSharpFunc{Microsoft.AspNetCore.Http.HttpContext,System.Threading.Tasks.Task{Microsoft.FSharp.Core.FSharpOption{Microsoft.AspNetCore.Http.HttpContext}}},Microsoft.AspNetCore.Http.HttpContext)">
+<summary>
+ **Description**
+
+ Filters an incoming HTTP request based on the beginning of the request path (case insensitive).
+
+ **Parameters**
+
+ `subPath`: The expected beginning of a request path.
+
+ **Output**
+
+ A Giraffe `HttpHandler` function which can be composed into a bigger web application.
+
+</summary>
+</member>
+<member name="M:Giraffe.Routing.routeStartsWith(System.String,Microsoft.FSharp.Core.FSharpFunc{Microsoft.AspNetCore.Http.HttpContext,System.Threading.Tasks.Task{Microsoft.FSharp.Core.FSharpOption{Microsoft.AspNetCore.Http.HttpContext}}},Microsoft.AspNetCore.Http.HttpContext)">
+<summary>
+ **Description**
+
+ Filters an incoming HTTP request based on the beginning of the request path (case sensitive).
+
+ **Parameters**
+
+ `subPath`: The expected beginning of a request path.
+
+ **Output**
+
+ A Giraffe `HttpHandler` function which can be composed into a bigger web application.
+
+</summary>
+</member>
+<member name="M:Giraffe.Routing.routeBind``1(System.String,Microsoft.FSharp.Core.FSharpFunc{``0,Microsoft.FSharp.Core.FSharpFunc{Microsoft.FSharp.Core.FSharpFunc{Microsoft.AspNetCore.Http.HttpContext,System.Threading.Tasks.Task{Microsoft.FSharp.Core.FSharpOption{Microsoft.AspNetCore.Http.HttpContext}}},Microsoft.FSharp.Core.FSharpFunc{Microsoft.AspNetCore.Http.HttpContext,System.Threading.Tasks.Task{Microsoft.FSharp.Core.FSharpOption{Microsoft.AspNetCore.Http.HttpContext}}}}},Microsoft.FSharp.Core.FSharpFunc{Microsoft.AspNetCore.Http.HttpContext,System.Threading.Tasks.Task{Microsoft.FSharp.Core.FSharpOption{Microsoft.AspNetCore.Http.HttpContext}}},Microsoft.AspNetCore.Http.HttpContext)">
+<summary>
+ **Description**
+
+ Filters an incoming HTTP request based on the request path (case insensitive).
+
+ If the route matches the incoming HTTP request then the parameters from the string will be used to create an instance of `&apos;T` and subsequently passed into the supplied `routeHandler`.
+
+ **Parameters**
+
+ `route`: A string representing the expected request path. Use `{propertyName}` for reserved parameter names which should map to the properties of type `&apos;T`. You can also use valid `Regex` within the `route` string.
+ `routeHandler`: A function which accepts a tuple `&apos;T` of the parsed parameters and returns a `HttpHandler` function which will subsequently deal with the request.
+
+ **Output**
+
+ A Giraffe `HttpHandler` function which can be composed into a bigger web application.
+
+</summary>
+</member>
+<member name="M:Giraffe.Routing.routeCif``5(Microsoft.FSharp.Core.PrintfFormat{``0,``1,``2,``3,``4},Microsoft.FSharp.Core.FSharpFunc{``4,Microsoft.FSharp.Core.FSharpFunc{Microsoft.FSharp.Core.FSharpFunc{Microsoft.AspNetCore.Http.HttpContext,System.Threading.Tasks.Task{Microsoft.FSharp.Core.FSharpOption{Microsoft.AspNetCore.Http.HttpContext}}},Microsoft.FSharp.Core.FSharpFunc{Microsoft.AspNetCore.Http.HttpContext,System.Threading.Tasks.Task{Microsoft.FSharp.Core.FSharpOption{Microsoft.AspNetCore.Http.HttpContext}}}}})">
+<summary>
+ **Description**
+
+ Filters an incoming HTTP request based on the request path (case insensitive).
+
+ If the route matches the incoming HTTP request then the arguments from the `PrintfFormat&lt;...&gt;` will be automatically resolved and passed into the supplied `routeHandler`.
+
+ **Supported format chars**
+
+ `%b`: `bool`
+ `%c`: `char`
+ `%s`: `string`
+ `%i`: `int`
+ `%d`: `int64`
+ `%f`: `float`/`double`
+ `%O`: `Guid`
+
+ **Parameters**
+
+ `path`: A format string representing the expected request path.
+ `routeHandler`: A function which accepts a tuple `&apos;T` of the parsed arguments and returns a `HttpHandler` function which will subsequently deal with the request.
+
+ **Output**
+
+ A Giraffe `HttpHandler` function which can be composed into a bigger web application.
+
+</summary>
+</member>
+<member name="M:Giraffe.Routing.routef``5(Microsoft.FSharp.Core.PrintfFormat{``0,``1,``2,``3,``4},Microsoft.FSharp.Core.FSharpFunc{``4,Microsoft.FSharp.Core.FSharpFunc{Microsoft.FSharp.Core.FSharpFunc{Microsoft.AspNetCore.Http.HttpContext,System.Threading.Tasks.Task{Microsoft.FSharp.Core.FSharpOption{Microsoft.AspNetCore.Http.HttpContext}}},Microsoft.FSharp.Core.FSharpFunc{Microsoft.AspNetCore.Http.HttpContext,System.Threading.Tasks.Task{Microsoft.FSharp.Core.FSharpOption{Microsoft.AspNetCore.Http.HttpContext}}}}})">
+<summary>
+ **Description**
+
+ Filters an incoming HTTP request based on the request path (case sensitive).
+
+ If the route matches the incoming HTTP request then the arguments from the `PrintfFormat&lt;...&gt;` will be automatically resolved and passed into the supplied `routeHandler`.
+
+ **Supported format chars**
+
+ `%b`: `bool`
+ `%c`: `char`
+ `%s`: `string`
+ `%i`: `int`
+ `%d`: `int64`
+ `%f`: `float`/`double`
+ `%O`: `Guid`
+
+ **Parameters**
+
+ `path`: A format string representing the expected request path.
+ `routeHandler`: A function which accepts a tuple `&apos;T` of the parsed arguments and returns a `HttpHandler` function which will subsequently deal with the request.
+
+ **Output**
+
+ A Giraffe `HttpHandler` function which can be composed into a bigger web application.
+
+</summary>
+</member>
+<member name="M:Giraffe.Routing.routeCix(System.String,Microsoft.FSharp.Core.FSharpFunc{Microsoft.AspNetCore.Http.HttpContext,System.Threading.Tasks.Task{Microsoft.FSharp.Core.FSharpOption{Microsoft.AspNetCore.Http.HttpContext}}},Microsoft.AspNetCore.Http.HttpContext)">
+<summary>
+ **Description**
+
+ Filters an incoming HTTP request based on the request path using Regex (case insensitive).
+
+ **Parameters**
+
+ `path`: Regex path.
+
+ **Output**
+
+ A Giraffe `HttpHandler` function which can be composed into a bigger web application.
+
+</summary>
+</member>
+<member name="M:Giraffe.Routing.routex(System.String,Microsoft.FSharp.Core.FSharpFunc{Microsoft.AspNetCore.Http.HttpContext,System.Threading.Tasks.Task{Microsoft.FSharp.Core.FSharpOption{Microsoft.AspNetCore.Http.HttpContext}}},Microsoft.AspNetCore.Http.HttpContext)">
+<summary>
+ **Description**
+
+ Filters an incoming HTTP request based on the request path using Regex (case sensitive).
+
+ **Parameters**
+
+ `path`: Regex path.
+
+ **Output**
+
+ A Giraffe `HttpHandler` function which can be composed into a bigger web application.
+
+</summary>
+</member>
+<member name="M:Giraffe.Routing.routeCi(System.String,Microsoft.FSharp.Core.FSharpFunc{Microsoft.AspNetCore.Http.HttpContext,System.Threading.Tasks.Task{Microsoft.FSharp.Core.FSharpOption{Microsoft.AspNetCore.Http.HttpContext}}},Microsoft.AspNetCore.Http.HttpContext)">
+<summary>
+ **Description**
+
+ Filters an incoming HTTP request based on the request path (case insensitive).
+
+ **Parameters**
+
+ `path`: Request path.
+
+ **Output**
+
+ A Giraffe `HttpHandler` function which can be composed into a bigger web application.
+
+</summary>
+</member>
+<member name="M:Giraffe.Routing.route(System.String,Microsoft.FSharp.Core.FSharpFunc{Microsoft.AspNetCore.Http.HttpContext,System.Threading.Tasks.Task{Microsoft.FSharp.Core.FSharpOption{Microsoft.AspNetCore.Http.HttpContext}}},Microsoft.AspNetCore.Http.HttpContext)">
+<summary>
+ **Description**
+
+ Filters an incoming HTTP request based on the request path (case sensitive).
+
+ **Parameters**
+
+ `path`: Request path.
+
+ **Output**
+
+ A Giraffe `HttpHandler` function which can be composed into a bigger web application.
+
+</summary>
+</member>
+<member name="M:Giraffe.Routing.routePorts(Microsoft.FSharp.Collections.FSharpList{System.Tuple{System.Int32,Microsoft.FSharp.Core.FSharpFunc{Microsoft.FSharp.Core.FSharpFunc{Microsoft.AspNetCore.Http.HttpContext,System.Threading.Tasks.Task{Microsoft.FSharp.Core.FSharpOption{Microsoft.AspNetCore.Http.HttpContext}}},Microsoft.FSharp.Core.FSharpFunc{Microsoft.AspNetCore.Http.HttpContext,System.Threading.Tasks.Task{Microsoft.FSharp.Core.FSharpOption{Microsoft.AspNetCore.Http.HttpContext}}}}}},Microsoft.FSharp.Core.FSharpFunc{Microsoft.AspNetCore.Http.HttpContext,System.Threading.Tasks.Task{Microsoft.FSharp.Core.FSharpOption{Microsoft.AspNetCore.Http.HttpContext}}})">
+<summary>
+ **Description**
+
+ Filters an incoming HTTP request based on the port.
+
+ **Parameters**
+
+ `fns`: List of port to `HttpHandler` mappings
+
+ **Output**
+
+ A Giraffe `HttpHandler` function which can be composed into a bigger web application.
+
+</summary>
+</member>
+<member name="M:Giraffe.ResponseWriters.htmlView(Giraffe.GiraffeViewEngine.XmlNode)">
+<summary>
+ **Description**
+
+ Compiles a `Giraffe.GiraffeViewEngine.XmlNode` object to a HTML view and writes the output to the body of the HTTP response.
+
+ It also sets the HTTP header `Content-Type` to `text/html` and sets the `Content-Length` header accordingly.
+
+ **Parameters**
+
+ `htmlView`: An `XmlNode` object to be send back to the client and which represents a valid HTML view.
+
+ **Output**
+
+ A Giraffe `HttpHandler` function which can be composed into a bigger web application.
+
+</summary>
+</member>
+<member name="M:Giraffe.ResponseWriters.htmlString(System.String)">
+<summary>
+ **Description**
+
+ Writes a HTML string to the body of the HTTP response.
+
+ It also sets the HTTP header `Content-Type` to `text/html` and sets the `Content-Length` header accordingly.
+
+ **Parameters**
+
+ `html`: The HTML string to be send back to the client.
+
+ **Output**
+
+ A Giraffe `HttpHandler` function which can be composed into a bigger web application.
+
+</summary>
+</member>
+<member name="M:Giraffe.ResponseWriters.htmlFile(System.String,Microsoft.FSharp.Core.FSharpFunc{Microsoft.AspNetCore.Http.HttpContext,System.Threading.Tasks.Task{Microsoft.FSharp.Core.FSharpOption{Microsoft.AspNetCore.Http.HttpContext}}},Microsoft.AspNetCore.Http.HttpContext)">
+<summary>
+ **Description**
+
+ Reads a HTML file from disk and writes its contents to the body of the HTTP response.
+
+ It also sets the HTTP header `Content-Type` to `text/html` and sets the `Content-Length` header accordingly.
+
+ **Parameters**
+
+ `filePath`: A relative or absolute file path to the HTML file.
+
+ **Output**
+
+ A Giraffe `HttpHandler` function which can be composed into a bigger web application.
+
+</summary>
+</member>
+<member name="M:Giraffe.ResponseWriters.xml(System.Object,Microsoft.FSharp.Core.FSharpFunc{Microsoft.AspNetCore.Http.HttpContext,System.Threading.Tasks.Task{Microsoft.FSharp.Core.FSharpOption{Microsoft.AspNetCore.Http.HttpContext}}},Microsoft.AspNetCore.Http.HttpContext)">
+<summary>
+ **Description**
+
+ Serializes an object to XML and writes the output to the body of the HTTP response.
+
+ It also sets the HTTP `Content-Type` header to `application/xml` and sets the `Content-Length` header accordingly.
+
+ The JSON serializer can be configured in the ASP.NET Core startup code by registering a custom class of type `IXmlSerializer`.
+
+ **Parameters**
+
+ `dataObj`: The object to be send back to the client.
+
+ **Output**
+
+ A Giraffe `HttpHandler` function which can be composed into a bigger web application.
+
+</summary>
+</member>
+<member name="M:Giraffe.ResponseWriters.jsonChunked``1(``0,Microsoft.FSharp.Core.FSharpFunc{Microsoft.AspNetCore.Http.HttpContext,System.Threading.Tasks.Task{Microsoft.FSharp.Core.FSharpOption{Microsoft.AspNetCore.Http.HttpContext}}},Microsoft.AspNetCore.Http.HttpContext)">
+<summary>
+ **Description**
+
+ Serializes an object to JSON and writes the output to the body of the HTTP response using chunked transfer encoding.
+
+ It also sets the HTTP `Content-Type` header to `application/json` and sets the `Transfer-Encoding` header to `chunked`.
+
+ The JSON serializer can be configured in the ASP.NET Core startup code by registering a custom class of type `IJsonSerializer`.
+
+ **Parameters**
+
+ `dataObj`: The object to be send back to the client.
+
+ **Output**
+
+ A Giraffe `HttpHandler` function which can be composed into a bigger web application.
+
+</summary>
+</member>
+<member name="M:Giraffe.ResponseWriters.json``1(``0,Microsoft.FSharp.Core.FSharpFunc{Microsoft.AspNetCore.Http.HttpContext,System.Threading.Tasks.Task{Microsoft.FSharp.Core.FSharpOption{Microsoft.AspNetCore.Http.HttpContext}}},Microsoft.AspNetCore.Http.HttpContext)">
+<summary>
+ **Description**
+
+ Serializes an object to JSON and writes the output to the body of the HTTP response.
+
+ It also sets the HTTP `Content-Type` header to `application/json` and sets the `Content-Length` header accordingly.
+
+ The JSON serializer can be configured in the ASP.NET Core startup code by registering a custom class of type `IJsonSerializer`.
+
+ **Parameters**
+
+ `dataObj`: The object to be send back to the client.
+
+ **Output**
+
+ A Giraffe `HttpHandler` function which can be composed into a bigger web application.
+
+</summary>
+</member>
+<member name="M:Giraffe.ResponseWriters.text(System.String)">
+<summary>
+ **Description**
+
+ Writes an UTF-8 encoded string to the body of the HTTP response and sets the HTTP `Content-Length` header accordingly, as well as the `Content-Type` header to `text/plain`.
+
+ **Parameters**
+
+ `str`: The string value to be send back to the client.
+
+ **Output**
+
+ A Giraffe `HttpHandler` function which can be composed into a bigger web application.
+
+</summary>
+</member>
+<member name="M:Giraffe.ResponseWriters.setBodyFromString(System.String)">
+<summary>
+ **Description**
+
+ Writes an UTF-8 encoded string to the body of the HTTP response and sets the HTTP `Content-Length` header accordingly.
+
+ **Parameters**
+
+ `str`: The string value to be send back to the client.
+
+ **Output**
+
+ A Giraffe `HttpHandler` function which can be composed into a bigger web application.
+
+</summary>
+</member>
+<member name="M:Giraffe.ResponseWriters.setBody(System.Byte[],Microsoft.FSharp.Core.FSharpFunc{Microsoft.AspNetCore.Http.HttpContext,System.Threading.Tasks.Task{Microsoft.FSharp.Core.FSharpOption{Microsoft.AspNetCore.Http.HttpContext}}},Microsoft.AspNetCore.Http.HttpContext)">
+<summary>
+ **Description**
+
+ Writes a byte array to the body of the HTTP response and sets the HTTP `Content-Length` header accordingly.
+
+ **Parameters**
+
+ `bytes`: The byte array to be send back to the client.
+
+ **Output**
+
+ A Giraffe `HttpHandler` function which can be composed into a bigger web application.
+
+</summary>
+</member>
+<member name="M:Giraffe.ResponseWriters.HttpContext.WriteHtmlViewAsync(Microsoft.AspNetCore.Http.HttpContext,Giraffe.GiraffeViewEngine.XmlNode)">
+<summary>
+ **Description**
+
+ Compiles a `Giraffe.GiraffeViewEngine.XmlNode` object to a HTML view and writes the output to the body of the HTTP response.
+
+ It also sets the HTTP header `Content-Type` to `text/html` and sets the `Content-Length` header accordingly.
+
+ **Parameters**
+
+ `htmlView`: An `XmlNode` object to be send back to the client and which represents a valid HTML view.
+
+ **Output**
+
+ Task of `Some HttpContext` after writing to the body of the response.
+
+</summary>
+</member>
+<member name="M:Giraffe.ResponseWriters.HttpContext.WriteHtmlStringAsync(Microsoft.AspNetCore.Http.HttpContext,System.String)">
+<summary>
+ **Description**
+
+ Writes a HTML string to the body of the HTTP response.
+
+ It also sets the HTTP header `Content-Type` to `text/html` and sets the `Content-Length` header accordingly.
+
+ **Parameters**
+
+ `html`: The HTML string to be send back to the client.
+
+ **Output**
+
+ Task of `Some HttpContext` after writing to the body of the response.
+
+</summary>
+</member>
+<member name="M:Giraffe.ResponseWriters.HttpContext.WriteHtmlFileAsync(Microsoft.AspNetCore.Http.HttpContext,System.String)">
+<summary>
+ **Description**
+
+ Reads a HTML file from disk and writes its contents to the body of the HTTP response.
+
+ It also sets the HTTP header `Content-Type` to `text/html` and sets the `Content-Length` header accordingly.
+
+ **Parameters**
+
+ `filePath`: A relative or absolute file path to the HTML file.
+
+ **Output**
+
+ Task of `Some HttpContext` after writing to the body of the response.
+
+</summary>
+</member>
+<member name="M:Giraffe.ResponseWriters.HttpContext.WriteXmlAsync(Microsoft.AspNetCore.Http.HttpContext,System.Object)">
+<summary>
+ **Description**
+
+ Serializes an object to XML and writes the output to the body of the HTTP response.
+
+ It also sets the HTTP `Content-Type` header to `application/xml` and sets the `Content-Length` header accordingly.
+
+ The JSON serializer can be configured in the ASP.NET Core startup code by registering a custom class of type `IXmlSerializer`.
+
+ **Parameters**
+
+ `dataObj`: The object to be send back to the client.
+
+ **Output**
+
+ Task of `Some HttpContext` after writing to the body of the response.
+
+</summary>
+</member>
+<member name="M:Giraffe.ResponseWriters.HttpContext.WriteJsonChunkedAsync``1(Microsoft.AspNetCore.Http.HttpContext,``0)">
+<summary>
+ **Description**
+
+ Serializes an object to JSON and writes the output to the body of the HTTP response using chunked transfer encoding.
+
+ It also sets the HTTP `Content-Type` header to `application/json` and sets the `Transfer-Encoding` header to `chunked`.
+
+ The JSON serializer can be configured in the ASP.NET Core startup code by registering a custom class of type `IJsonSerializer`.
+
+ **Parameters**
+
+ `dataObj`: The object to be send back to the client.
+
+ **Output**
+
+ Task of `Some HttpContext` after writing to the body of the response.
+
+</summary>
+</member>
+<member name="M:Giraffe.ResponseWriters.HttpContext.WriteJsonAsync``1(Microsoft.AspNetCore.Http.HttpContext,``0)">
+<summary>
+ **Description**
+
+ Serializes an object to JSON and writes the output to the body of the HTTP response.
+
+ It also sets the HTTP `Content-Type` header to `application/json` and sets the `Content-Length` header accordingly.
+
+ The JSON serializer can be configured in the ASP.NET Core startup code by registering a custom class of type `IJsonSerializer`.
+
+ **Parameters**
+
+ `dataObj`: The object to be send back to the client.
+
+ **Output**
+
+ Task of `Some HttpContext` after writing to the body of the response.
+
+</summary>
+</member>
+<member name="M:Giraffe.ResponseWriters.HttpContext.WriteTextAsync(Microsoft.AspNetCore.Http.HttpContext,System.String)">
+<summary>
+ **Description**
+
+ Writes an UTF-8 encoded string to the body of the HTTP response and sets the HTTP `Content-Length` header accordingly, as well as the `Content-Type` header to `text/plain`.
+
+ **Parameters**
+
+ `str`: The string value to be send back to the client.
+
+ **Output**
+
+ Task of `Some HttpContext` after writing to the body of the response.
+
+</summary>
+</member>
+<member name="M:Giraffe.ResponseWriters.HttpContext.WriteStringAsync(Microsoft.AspNetCore.Http.HttpContext,System.String)">
+<summary>
+ **Description**
+
+ Writes an UTF-8 encoded string to the body of the HTTP response and sets the HTTP `Content-Length` header accordingly.
+
+ **Parameters**
+
+ `str`: The string value to be send back to the client.
+
+ **Output**
+
+ Task of `Some HttpContext` after writing to the body of the response.
+
+</summary>
+</member>
+<member name="M:Giraffe.ResponseWriters.HttpContext.WriteBytesAsync(Microsoft.AspNetCore.Http.HttpContext,System.Byte[])">
+<summary>
+ **Description**
+
+ Writes a byte array to the body of the HTTP response and sets the HTTP `Content-Length` header accordingly.
+
+ **Parameters**
+
+ `bytes`: The byte array to be send back to the client.
+
+ **Output**
+
+ Task of `Some HttpContext` after writing to the body of the response.
+
+</summary>
+</member>
+<member name="M:Giraffe.Preconditional.validatePreconditions(Microsoft.FSharp.Core.FSharpOption{Microsoft.Net.Http.Headers.EntityTagHeaderValue},Microsoft.FSharp.Core.FSharpOption{System.DateTimeOffset},Microsoft.FSharp.Core.FSharpFunc{Microsoft.AspNetCore.Http.HttpContext,System.Threading.Tasks.Task{Microsoft.FSharp.Core.FSharpOption{Microsoft.AspNetCore.Http.HttpContext}}},Microsoft.AspNetCore.Http.HttpContext)">
+<summary>
+ **Description**
+
+ Validates the following conditional HTTP headers of the request:
+
+ `If-Match`
+ `If-None-Match`
+ `If-Modified-Since`
+ `If-Unmodified-Since`
+
+ If the conditions are met (or non existent) then it will invoke the `next` http handler in the pipeline otherwise it will return a `304 Not Modified` or `412 Precondition Failed` response.
+
+ **Parameters**
+
+ `eTag`: Optional ETag. You can use the static `EntityTagHeaderValue.FromString` helper method to generate a valid `EntityTagHeaderValue` object.
+ `lastModified`: Optional `DateTimeOffset` object denoting the last modified date.
+
+ **Output**
+
+ A Giraffe `HttpHandler` function which can be composed into a bigger web application.
+
+</summary>
+</member>
+<member name="M:Giraffe.Preconditional.HttpContext.PreconditionFailedResponse(Microsoft.AspNetCore.Http.HttpContext)">
+<summary>
+ **Description**
+
+ Sends a default HTTP `412 Precondition Failed` response to the client.
+
+</summary>
+</member>
+<member name="M:Giraffe.Preconditional.HttpContext.NotModifiedResponse(Microsoft.AspNetCore.Http.HttpContext)">
+<summary>
+ **Description**
+
+ Sends a default HTTP `304 Not Modified` response to the client.
+
+</summary>
+</member>
+<member name="M:Giraffe.Preconditional.HttpContext.ValidatePreconditions(Microsoft.AspNetCore.Http.HttpContext,Microsoft.FSharp.Core.FSharpOption{Microsoft.Net.Http.Headers.EntityTagHeaderValue},Microsoft.FSharp.Core.FSharpOption{System.DateTimeOffset})">
+<summary>
+ **Description**
+
+ Validates the following conditional HTTP headers of the HTTP request:
+
+ `If-Match`
+ `If-None-Match`
+ `If-Modified-Since`
+ `If-Unmodified-Since`
+
+ **Parameters**
+
+ `eTag`: Optional ETag. You can use the static `EntityTagHeaderValue.FromString` helper method to generate a valid `EntityTagHeaderValue` object.
+ `lastModified`: Optional `DateTimeOffset` object denoting the last modified date.
+
+ **Output**
+
+ Returns a `Precondition` union type, which can have one of the following cases:
+
+ `NoConditionsSpecified`: No validation has taken place, because the client didn&apos;t send any conditional HTTP headers.
+ `ConditionFailed`: At least one condition couldn&apos;t be satisfied. It is advised to return a `412` status code back to the client (you can use the `HttpContext.PreconditionFailedResponse()` method for that purpose).
+ `ResourceNotModified`: The resource hasn&apos;t changed since the last visit. The server can skip processing this request and return a `304` status code back to the client (you can use the `HttpContext.NotModifiedResponse()` method for that purpose).
+ `AllConditionsMet`: All pre-conditions can be satisfied. The server should continue processing the request as normal.
+
+</summary>
+</member>
+<member name="M:Giraffe.Preconditional.EntityTagHeaderValue.FromString.Static(System.Boolean,System.String)">
+<summary>
+ **Description**
+
+ Creates an object of type `EntityTagHeaderValue`.
+
+ **Parameters**
+
+ `isWeak`: The difference between a regular (strong) ETag and a weak ETag is that a matching strong ETag guarantees the file is byte-for-byte identical, whereas a matching weak ETag indicates that the content is semantically the same. So if the content of the file changes, the weak ETag should change as well.
+ `eTag`: The entity tag value (without quotes or the `W/` prefix).
+
+ **Output**
+
+ Returns an object of `EntityTagHeaderValue`.
+
+</summary>
+</member>
+<member name="M:Giraffe.Streaming.streamFile(System.Boolean,System.String,Microsoft.FSharp.Core.FSharpOption{Microsoft.Net.Http.Headers.EntityTagHeaderValue},Microsoft.FSharp.Core.FSharpOption{System.DateTimeOffset},Microsoft.FSharp.Core.FSharpFunc{Microsoft.AspNetCore.Http.HttpContext,System.Threading.Tasks.Task{Microsoft.FSharp.Core.FSharpOption{Microsoft.AspNetCore.Http.HttpContext}}},Microsoft.AspNetCore.Http.HttpContext)">
+<summary>
+ **Description**
+
+ Streams a file to the client.
+
+ The handler will respect any valid HTTP pre-conditions (e.g. `If-Match`, `If-Modified-Since`, etc.) and return the most appropriate response. If the optional parameters `eTag` and/or `lastModified` have been set, then it will also set the `ETag` and/or `Last-Modified` HTTP headers in the response.
+
+ **Parameters**
+
+ `enableRangeProcessing`: If enabled then the handler will respect the `Range` and `If-Range` HTTP headers of the request as well as set all necessary HTTP headers in the response to enable HTTP range processing.
+ `filePath`: The absolute or relative path (to `ContentRoot`) of the file.
+ `eTag`: An optional entity tag which identifies the exact version of the file.
+ `lastModified`: An optional parameter denoting the last modified date time of the file.
+
+ **Output**
+
+ A Giraffe `HttpHandler` function which can be composed into a bigger web application.
+
+</summary>
+</member>
+<member name="M:Giraffe.Streaming.streamData(System.Boolean,System.IO.Stream,Microsoft.FSharp.Core.FSharpOption{Microsoft.Net.Http.Headers.EntityTagHeaderValue},Microsoft.FSharp.Core.FSharpOption{System.DateTimeOffset},Microsoft.FSharp.Core.FSharpFunc{Microsoft.AspNetCore.Http.HttpContext,System.Threading.Tasks.Task{Microsoft.FSharp.Core.FSharpOption{Microsoft.AspNetCore.Http.HttpContext}}},Microsoft.AspNetCore.Http.HttpContext)">
+<summary>
+ **Description**
+
+ Streams data to the client.
+
+ The handler will respect any valid HTTP pre-conditions (e.g. `If-Match`, `If-Modified-Since`, etc.) and return the most appropriate response. If the optional parameters `eTag` and/or `lastModified` have been set, then it will also set the `ETag` and/or `Last-Modified` HTTP headers in the response.
+
+ **Parameters**
+
+ `enableRangeProcessing`: If enabled then the handler will respect the `Range` and `If-Range` HTTP headers of the request as well as set all necessary HTTP headers in the response to enable HTTP range processing.
+ `stream`: The stream to be send to the client.
+ `eTag`: An optional entity tag which identifies the exact version of the data.
+ `lastModified`: An optional parameter denoting the last modified date time of the file.
+
+ **Output**
+
+ A Giraffe `HttpHandler` function which can be composed into a bigger web application.
+
+</summary>
+</member>
+<member name="M:Giraffe.Streaming.HttpContext.WriteFileStreamAsync(Microsoft.AspNetCore.Http.HttpContext,System.Boolean,System.String,Microsoft.FSharp.Core.FSharpOption{Microsoft.Net.Http.Headers.EntityTagHeaderValue},Microsoft.FSharp.Core.FSharpOption{System.DateTimeOffset})">
+<summary>
+ **Description**
+
+ Streams a file to the client.
+
+ The handler will respect any valid HTTP pre-conditions (e.g. `If-Match`, `If-Modified-Since`, etc.) and return the most appropriate response. If the optional parameters `eTag` and/or `lastModified` have been set, then it will also set the `ETag` and/or `Last-Modified` HTTP headers in the response.
+
+ **Parameters**
+
+ `enableRangeProcessing`: If enabled then the handler will respect the `Range` and `If-Range` HTTP headers of the request as well as set all necessary HTTP headers in the response to enable HTTP range processing.
+ `filePath`: The absolute or relative path (to `ContentRoot`) of the file.
+ `eTag`: An optional entity tag which identifies the exact version of the file.
+ `lastModified`: An optional parameter denoting the last modified date time of the file.
+
+ **Output**
+
+ Task of `Some HttpContext` after writing to the body of the response.
+
+</summary>
+</member>
+<member name="M:Giraffe.Streaming.HttpContext.WriteStreamAsync(Microsoft.AspNetCore.Http.HttpContext,System.Boolean,System.IO.Stream,Microsoft.FSharp.Core.FSharpOption{Microsoft.Net.Http.Headers.EntityTagHeaderValue},Microsoft.FSharp.Core.FSharpOption{System.DateTimeOffset})">
+<summary>
+ **Description**
+
+ Streams data to the client.
+
+ The handler will respect any valid HTTP pre-conditions (e.g. `If-Match`, `If-Modified-Since`, etc.) and return the most appropriate response. If the optional parameters `eTag` and/or `lastModified` have been set, then it will also set the `ETag` and/or `Last-Modified` HTTP headers in the response.
+
+ **Parameters**
+
+ `enableRangeProcessing`: If enabled then the handler will respect the `Range` and `If-Range` HTTP headers of the request as well as set all necessary HTTP headers in the response to enable HTTP range processing.
+ `stream`: The stream to be send to the client.
+ `eTag`: An optional entity tag which identifies the exact version of the data.
+ `lastModified`: An optional parameter denoting the last modified date time of the data.
+
+ **Output**
+
+ Task of `Some HttpContext` after writing to the body of the response.
+
+</summary>
+</member>
+<member name="M:Giraffe.Streaming.RangeHelper.isIfRangeValid(Microsoft.AspNetCore.Http.HttpRequest,Microsoft.FSharp.Core.FSharpOption{Microsoft.Net.Http.Headers.EntityTagHeaderValue},Microsoft.FSharp.Core.FSharpOption{System.DateTimeOffset})">
+<summary>
+ **Description**
+
+ Parses and validates the `If-Range` HTTP header
+
+</summary>
+</member>
+<member name="M:Giraffe.Streaming.RangeHelper.validateRanges(System.Collections.Generic.ICollection{Microsoft.Net.Http.Headers.RangeItemHeaderValue},System.Int64)">
+<summary>
+ **Description**
+
+ Validates if the provided set of `ranges` can be satisfied with the given `contentLength`.
+
+</summary>
+</member>
+<member name="M:Giraffe.Streaming.RangeHelper.parseRange(Microsoft.AspNetCore.Http.HttpRequest)">
+<summary>
+ **Description**
+
+ Parses the `Range` HTTP header of a request.
+
+ Original code taken from ASP.NET Core:
+
+ https://github.com/aspnet/StaticFiles/blob/dev/shared/Microsoft.AspNetCore.RangeHelper.Sources/RangeHelper.cs
+
+</summary>
+</member>
+<member name="T:Giraffe.Streaming.RangeHelper">
+<summary>
+ **Description**
+
+ A collection of helper functions to parse and validate the `Range` and `If-Range` HTTP headers of a request.
+
+</summary>
+</member>
+<member name="T:Giraffe.Negotiation.DefaultNegotiationConfig">
+<summary>
+ **Description**
+
+ The default implementation of `INegotiationConfig`.
+
+ **Supported mime types**
+
+ `*/*`: If a client accepts any content type then the server will return a JSON response.
+ `application/json`: Server will send a JSON response.
+ `application/xml`: Server will send an XML response.
+ `text/xml`: Server will send an XML response.
+ `text/plain`: Server will send a plain text response (by suing an object&apos;s `ToString()` method).
+
+</summary>
+</member>
+<member name="P:Giraffe.Negotiation.INegotiationConfig.UnacceptableHandler">
+<summary>
+ **Description**
+
+ A `HttpHandler` function which will be invoked if none of the accepted mime types can be satisfied. Generally this `HttpHandler` would send a response with a status code of `406 Unacceptable`.
+
+</summary>
+</member>
+<member name="P:Giraffe.Negotiation.INegotiationConfig.Rules">
+<summary>
+ **Description**
+
+ A dictionary of mime types and response writing `HttpHandler` functions.
+
+ Each mime type must be mapped to a function which accepts an `obj` and returns a `HttpHandler` which will send a response in the associated mime type.
+
+ **Example**
+
+ `dict [ &quot;application/json&quot;, json; &quot;application/xml&quot; , xml ]`
+
+</summary>
+</member>
+<member name="T:Giraffe.Negotiation.INegotiationConfig">
+<summary>
+ **Description**
+
+ Interface defining the negotiation rules and the `HttpHandler` for unacceptable requests when doing content negotiation in Giraffe.
+
+</summary>
+</member>
+<member name="M:Giraffe.Negotiation.negotiate(System.Object,Microsoft.FSharp.Core.FSharpFunc{Microsoft.AspNetCore.Http.HttpContext,System.Threading.Tasks.Task{Microsoft.FSharp.Core.FSharpOption{Microsoft.AspNetCore.Http.HttpContext}}},Microsoft.AspNetCore.Http.HttpContext)">
+<summary>
+ **Description**
+
+ Sends a response back to the client based on the request&apos;s `Accept` header.
+
+ The negotiation rules as well as a `HttpHandler` for unacceptable requests can be configured in the ASP.NET Core startup code by registering a custom class of type `INegotiationConfig`.
+
+ **Parameters**
+
+ `responseObj`: The object to send back to the client.
+
+ **Output**
+
+ A Giraffe `HttpHandler` function which can be composed into a bigger web application.
+
+</summary>
+</member>
+<member name="M:Giraffe.Negotiation.negotiateWith(System.Collections.Generic.IDictionary{System.String,Microsoft.FSharp.Core.FSharpFunc{System.Object,Microsoft.FSharp.Core.FSharpFunc{Microsoft.FSharp.Core.FSharpFunc{Microsoft.AspNetCore.Http.HttpContext,System.Threading.Tasks.Task{Microsoft.FSharp.Core.FSharpOption{Microsoft.AspNetCore.Http.HttpContext}}},Microsoft.FSharp.Core.FSharpFunc{Microsoft.AspNetCore.Http.HttpContext,System.Threading.Tasks.Task{Microsoft.FSharp.Core.FSharpOption{Microsoft.AspNetCore.Http.HttpContext}}}}}},Microsoft.FSharp.Core.FSharpFunc{Microsoft.FSharp.Core.FSharpFunc{Microsoft.AspNetCore.Http.HttpContext,System.Threading.Tasks.Task{Microsoft.FSharp.Core.FSharpOption{Microsoft.AspNetCore.Http.HttpContext}}},Microsoft.FSharp.Core.FSharpFunc{Microsoft.AspNetCore.Http.HttpContext,System.Threading.Tasks.Task{Microsoft.FSharp.Core.FSharpOption{Microsoft.AspNetCore.Http.HttpContext}}}},System.Object,Microsoft.FSharp.Core.FSharpFunc{Microsoft.AspNetCore.Http.HttpContext,System.Threading.Tasks.Task{Microsoft.FSharp.Core.FSharpOption{Microsoft.AspNetCore.Http.HttpContext}}},Microsoft.AspNetCore.Http.HttpContext)">
+<summary>
+ **Description**
+
+ Sends a response back to the client based on the request&apos;s `Accept` header.
+
+ If the `Accept` header cannot be matched with one of the supported mime types from the `negotiationRules` then the `unacceptableHandler` will be invoked.
+
+ **Parameters**
+
+ `negotiationRules`: A dictionary of mime types and response writing `HttpHandler` functions. Each mime type must be mapped to a function which accepts an `obj` and returns a `HttpHandler` which will send a response in the associated mime type (e.g.: `dict [ &quot;application/json&quot;, json; &quot;application/xml&quot; , xml ]`).
+ `unacceptableHandler`: A `HttpHandler` function which will be invoked if none of the accepted mime types can be satisfied. Generally this `HttpHandler` would send a response with a status code of `406 Unacceptable`.
+ `responseObj`: The object to send back to the client.
+
+ **Output**
+
+ A Giraffe `HttpHandler` function which can be composed into a bigger web application.
+
+</summary>
+</member>
+<member name="M:Giraffe.Negotiation.HttpContext.NegotiateAsync(Microsoft.AspNetCore.Http.HttpContext,System.Object)">
+<summary>
+ **Description**
+
+ Sends a response back to the client based on the request&apos;s `Accept` header.
+
+ The negotiation rules as well as a `HttpHandler` for unacceptable requests can be configured in the ASP.NET Core startup code by registering a custom class of type `INegotiationConfig`.
+
+ **Parameters**
+
+ `responseObj`: The object to send back to the client.
+
+ **Output**
+
+ Task of `Some HttpContext` after writing to the body of the response.
+
+</summary>
+</member>
+<member name="M:Giraffe.Negotiation.HttpContext.NegotiateWithAsync(Microsoft.AspNetCore.Http.HttpContext,System.Collections.Generic.IDictionary{System.String,Microsoft.FSharp.Core.FSharpFunc{System.Object,Microsoft.FSharp.Core.FSharpFunc{Microsoft.FSharp.Core.FSharpFunc{Microsoft.AspNetCore.Http.HttpContext,System.Threading.Tasks.Task{Microsoft.FSharp.Core.FSharpOption{Microsoft.AspNetCore.Http.HttpContext}}},Microsoft.FSharp.Core.FSharpFunc{Microsoft.AspNetCore.Http.HttpContext,System.Threading.Tasks.Task{Microsoft.FSharp.Core.FSharpOption{Microsoft.AspNetCore.Http.HttpContext}}}}}},Microsoft.FSharp.Core.FSharpFunc{Microsoft.FSharp.Core.FSharpFunc{Microsoft.AspNetCore.Http.HttpContext,System.Threading.Tasks.Task{Microsoft.FSharp.Core.FSharpOption{Microsoft.AspNetCore.Http.HttpContext}}},Microsoft.FSharp.Core.FSharpFunc{Microsoft.AspNetCore.Http.HttpContext,System.Threading.Tasks.Task{Microsoft.FSharp.Core.FSharpOption{Microsoft.AspNetCore.Http.HttpContext}}}},System.Object)">
+<summary>
+ **Description**
+
+ Sends a response back to the client based on the request&apos;s `Accept` header.
+
+ If the `Accept` header cannot be matched with one of the supported mime types from the `negotiationRules` then the `unacceptableHandler` will be invoked.
+
+ **Parameters**
+
+ `negotiationRules`: A dictionary of mime types and response writing `HttpHandler` functions. Each mime type must be mapped to a function which accepts an `obj` and returns a `HttpHandler` which will send a response in the associated mime type (e.g.: `dict [ &quot;application/json&quot;, json; &quot;application/xml&quot; , xml ]`).
+ `unacceptableHandler`: A `HttpHandler` function which will be invoked if none of the accepted mime types can be satisfied. Generally this `HttpHandler` would send a response with a status code of `406 Unacceptable`.
+ `responseObj`: The object to send back to the client.
+
+ **Output**
+
+ Task of `Some HttpContext` after writing to the body of the response.
+
+</summary>
+</member>
+<member name="T:Giraffe.HttpStatusCodeHandlers.ServerErrors">
+<summary>
+ **Description**
+
+ A collection of `HttpHandler` functions to return HTTP status code `5xx` responses.
+
+</summary>
+</member>
+<member name="M:Giraffe.HttpStatusCodeHandlers.RequestErrors.unauthorized(System.String,System.String,Microsoft.FSharp.Core.FSharpFunc{Microsoft.FSharp.Core.FSharpFunc{Microsoft.AspNetCore.Http.HttpContext,System.Threading.Tasks.Task{Microsoft.FSharp.Core.FSharpOption{Microsoft.AspNetCore.Http.HttpContext}}},Microsoft.FSharp.Core.FSharpFunc{Microsoft.AspNetCore.Http.HttpContext,System.Threading.Tasks.Task{Microsoft.FSharp.Core.FSharpOption{Microsoft.AspNetCore.Http.HttpContext}}}})">
+<summary>
+ **Description**
+
+ Sends a `401 Unauthorized` HTTP status code response back to the client.
+
+ Use the `unauthorized` status code handler when a user could not be authenticated by the server (either missing or wrong authentication data). By returning a `401 Unauthorized` HTTP response the server tells the client that it must know **who** is making the request before it can return a successful response. As such the server must also include which authentication scheme the client must use in order to successfully authenticate.
+
+ **More information**
+
+ - https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/WWW-Authenticate
+ - http://stackoverflow.com/questions/3297048/403-forbidden-vs-401-unauthorized-http-responses/12675357
+
+ **List of authentication schemes**
+
+ - https://developer.mozilla.org/en-US/docs/Web/HTTP/Authentication#Authentication_schemes
+
+</summary>
+</member>
+<member name="T:Giraffe.HttpStatusCodeHandlers.RequestErrors">
+<summary>
+ **Description**
+
+ A collection of `HttpHandler` functions to return HTTP status code `4xx` responses.
+
+</summary>
+</member>
+<member name="T:Giraffe.HttpStatusCodeHandlers.Successful">
+<summary>
+ **Description**
+
+ A collection of `HttpHandler` functions to return HTTP status code `2xx` responses.
+
+</summary>
+</member>
+<member name="T:Giraffe.HttpStatusCodeHandlers.Intermediate">
+<summary>
+ **Description**
+
+ A collection of `HttpHandler` functions to return HTTP status code `1xx` responses.
+
+</summary>
+</member>
+<member name="M:Giraffe.Middleware.IServiceCollection.AddGiraffe(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+<summary>
+ **Description**
+
+ Adds default Giraffe services to the ASP.NET Core service container.
+
+ The default services include features like `IJsonSerializer`, `IXmlSerializer`, `INegotiationConfig` or more. Please check the official Giraffe documentation for an up to date list of configurable services.
+
+ **Output**
+
+ Returns an `IServiceCollection` builder object.
+
+</summary>
+</member>
+<member name="M:Giraffe.Middleware.IApplicationBuilder.UseGiraffeErrorHandler(Microsoft.AspNetCore.Builder.IApplicationBuilder,Microsoft.FSharp.Core.FSharpFunc{System.Exception,Microsoft.FSharp.Core.FSharpFunc{Microsoft.Extensions.Logging.ILogger,Microsoft.FSharp.Core.FSharpFunc{Microsoft.FSharp.Core.FSharpFunc{Microsoft.AspNetCore.Http.HttpContext,System.Threading.Tasks.Task{Microsoft.FSharp.Core.FSharpOption{Microsoft.AspNetCore.Http.HttpContext}}},Microsoft.FSharp.Core.FSharpFunc{Microsoft.AspNetCore.Http.HttpContext,System.Threading.Tasks.Task{Microsoft.FSharp.Core.FSharpOption{Microsoft.AspNetCore.Http.HttpContext}}}}}})">
+<summary>
+ **Description**
+
+ Adds the `GiraffeErrorHandlerMiddleware` into the ASP.NET Core pipeline. The `GiraffeErrorHandlerMiddleware` has been configured in such a way that it only invokes the `ErrorHandler` when an unhandled exception bubbles up to the middleware. It therefore is recommended to add the `GiraffeErrorHandlerMiddleware` as the very first middleware above everything else.
+
+ **Parameters**
+
+ `handler`: The Giraffe `ErrorHandler` pipeline. The handler can be anything from a single handler to a bigger error application which has been composed from many smaller handlers.
+
+ **Output**
+
+ Returns an `IApplicationBuilder` builder object.
+
+</summary>
+</member>
+<member name="M:Giraffe.Middleware.IApplicationBuilder.UseGiraffe(Microsoft.AspNetCore.Builder.IApplicationBuilder,Microsoft.FSharp.Core.FSharpFunc{Microsoft.FSharp.Core.FSharpFunc{Microsoft.AspNetCore.Http.HttpContext,System.Threading.Tasks.Task{Microsoft.FSharp.Core.FSharpOption{Microsoft.AspNetCore.Http.HttpContext}}},Microsoft.FSharp.Core.FSharpFunc{Microsoft.AspNetCore.Http.HttpContext,System.Threading.Tasks.Task{Microsoft.FSharp.Core.FSharpOption{Microsoft.AspNetCore.Http.HttpContext}}}})">
+<summary>
+ **Description**
+
+ Adds the `GiraffeMiddleware` into the ASP.NET Core pipeline. Any web request which doesn&apos;t get handled by a surrounding middleware can be picked up by the Giraffe `HttpHandler` pipeline.
+
+ It is generally recommended to add the `GiraffeMiddleware` after the error handling-, static file- and any authentication middleware.
+
+ **Parameters**
+
+ `handler`: The Giraffe `HttpHandler` pipeline. The handler can be anything from a single handler to an entire web application which has been composed from many smaller handlers.
+
+ **Output**
+
+ Returns `unit`.
+
+</summary>
+</member>
+</members>
+</doc>

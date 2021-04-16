@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2013/05/nuspec.xsd">
+  <metadata>
+    <id>Fable.Remoting.Client</id>
+    <version>7.8.0</version>
+    <authors>Zaid Ajaj,Diego Esmerio</authors>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <licenseUrl>https://github.com/Zaid-Ajaj/Fable.Remoting/blob/master/LICENSE</licenseUrl>
+    <projectUrl>https://github.com/Zaid-Ajaj/Fable.Remoting</projectUrl>
+    <description>Proxy generation for client Fable apps targeting F# server-side apps using Fable.Remoting</description>
+    <releaseNotes>Update MsgPack implementation to preserve the accuracy of decimals</releaseNotes>
+    <tags>fsharp fable remoting rpc webserver</tags>
+    <dependencies>
+      <group targetFramework=".NETCoreApp3.1">
+        <dependency id="Fable.Remoting.MsgPack" version="1.9.0" exclude="Build,Analyzers" />
+        <dependency id="FSharp.Core" version="4.7.0" exclude="Build,Analyzers" />
+        <dependency id="Fable.Browser.XMLHttpRequest" version="1.0.0" exclude="Build,Analyzers" />
+        <dependency id="Fable.Core" version="3.1.5" exclude="Build,Analyzers" />
+        <dependency id="Fable.SimpleJson" version="3.19.0" exclude="Build,Analyzers" />
+      </group>
+      <group targetFramework=".NETStandard2.0">
+        <dependency id="Fable.Remoting.MsgPack" version="1.9.0" exclude="Build,Analyzers" />
+        <dependency id="FSharp.Core" version="4.7.0" exclude="Build,Analyzers" />
+        <dependency id="Fable.Browser.XMLHttpRequest" version="1.0.0" exclude="Build,Analyzers" />
+        <dependency id="Fable.Core" version="3.1.5" exclude="Build,Analyzers" />
+        <dependency id="Fable.SimpleJson" version="3.19.0" exclude="Build,Analyzers" />
+      </group>
+    </dependencies>
+  </metadata>
+</package>

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doc>
+<assembly><name>Fable.Elmish.React</name></assembly>
+<members>
+<member name="M:Elmish.React.Common.lazyView3``3(Microsoft.FSharp.Core.FSharpFunc{``0,Microsoft.FSharp.Core.FSharpFunc{``1,Microsoft.FSharp.Core.FSharpFunc{Microsoft.FSharp.Core.FSharpFunc{``2,Microsoft.FSharp.Core.Unit},Fable.React.ReactElement}}})">
+<summary>
+ Avoid rendering the view unless the model has changed.
+ view: function of three arguments to render the model using the dispatch
+</summary>
+</member>
+<member name="M:Elmish.React.Common.lazyView2``2(Microsoft.FSharp.Core.FSharpFunc{``0,Microsoft.FSharp.Core.FSharpFunc{Microsoft.FSharp.Core.FSharpFunc{``1,Microsoft.FSharp.Core.Unit},Fable.React.ReactElement}})">
+<summary>
+ Avoid rendering the view unless the model has changed.
+ view: function of two arguments to render the model using the dispatch
+</summary>
+</member>
+<member name="M:Elmish.React.Common.lazyView``1(Microsoft.FSharp.Core.FSharpFunc{``0,Fable.React.ReactElement})">
+<summary>
+ Avoid rendering the view unless the model has changed.
+ view: function of model to render the view
+</summary>
+</member>
+<member name="M:Elmish.React.Common.lazyView3With``3(Microsoft.FSharp.Core.FSharpFunc{System.Tuple{``0,``1},Microsoft.FSharp.Core.FSharpFunc{System.Tuple{``0,``1},System.Boolean}},Microsoft.FSharp.Core.FSharpFunc{``0,Microsoft.FSharp.Core.FSharpFunc{``1,Microsoft.FSharp.Core.FSharpFunc{Microsoft.FSharp.Core.FSharpFunc{``2,Microsoft.FSharp.Core.Unit},Fable.React.ReactElement}}},``0,``1,Microsoft.FSharp.Core.FSharpFunc{``2,Microsoft.FSharp.Core.Unit})">
+<summary>
+ Avoid rendering the view unless the model has changed.
+ equal: function to compare the previous and the new model (a tuple of two states)
+ view: function to render the model using the dispatch
+ state1: new state to render
+ state2: new state to render
+ dispatch: dispatch function
+</summary>
+</member>
+<member name="M:Elmish.React.Common.lazyView2With``2(Microsoft.FSharp.Core.FSharpFunc{``0,Microsoft.FSharp.Core.FSharpFunc{``0,System.Boolean}},Microsoft.FSharp.Core.FSharpFunc{``0,Microsoft.FSharp.Core.FSharpFunc{Microsoft.FSharp.Core.FSharpFunc{``1,Microsoft.FSharp.Core.Unit},Fable.React.ReactElement}},``0,Microsoft.FSharp.Core.FSharpFunc{``1,Microsoft.FSharp.Core.Unit})">
+<summary>
+ Avoid rendering the view unless the model has changed.
+ equal: function to compare the previous and the new states
+ view: function to render the model using the dispatch
+ state: new state to render
+ dispatch: dispatch function
+</summary>
+</member>
+<member name="M:Elmish.React.Common.lazyViewWith``1(Microsoft.FSharp.Core.FSharpFunc{``0,Microsoft.FSharp.Core.FSharpFunc{``0,System.Boolean}},Microsoft.FSharp.Core.FSharpFunc{``0,Fable.React.ReactElement},``0)">
+<summary>
+ Avoid rendering the view unless the model has changed.
+ equal: function to compare the previous and the new states
+ view: function to render the model
+ state: new state to render
+</summary>
+</member>
+<member name="M:Elmish.React.Program.withReactHydrate``3(System.String,Elmish.Program{``0,``1,``2,Fable.React.ReactElement})">
+<summary>
+ Renders React root component inside html element identified by placeholderId using `React.hydrate`.
+</summary>
+</member>
+<member name="M:Elmish.React.Program.withReactSynchronous``3(System.String,Elmish.Program{``0,``1,``2,Fable.React.ReactElement})">
+<summary>
+ Renders React root component inside html element identified by placeholderId.
+ New renders are triggered immediately after an update.
+</summary>
+</member>
+<member name="M:Elmish.React.Program.withReactBatched``3(System.String,Elmish.Program{``0,``1,``2,Fable.React.ReactElement})">
+<summary>
+ Renders React root component inside html element identified by placeholderId.
+ Uses `requestAnimationFrame` to batch updates to prevent drops in frame rate.
+ NOTE: This may have unexpected effects in React controlled inputs, see https://github.com/elmish/react/issues/12
+</summary>
+</member>
+<member name="M:Elmish.React.Helpers.valueOrDefault``1(``0)">
+<summary>
+ `Ref` callback that sets the value of an input textbox after DOM element is created.
+ Can be used instead of `DefaultValue` and `Value` props to override input box value.
+</summary>
+</member>
+<member name="M:Elmish.ReactNative.Program.withReactNative``3(System.String,Elmish.Program{``0,``1,``2,Fable.React.ReactElement})">
+<summary>
+ Setup rendering of root ReactNative component
+</summary>
+</member>
+</members>
+</doc>

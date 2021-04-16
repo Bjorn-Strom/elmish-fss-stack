@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doc>
+<assembly><name>Fable.Parsimmon</name></assembly>
+<members>
+<member name="M:Fable.Parsimmon.Parsimmon.node``1(System.String,Fable.Parsimmon.IParser{``0})">
+<summary>
+ Equivalent to `parser.node(&quot;description&quot;)`
+</summary>
+</member>
+<member name="M:Fable.Parsimmon.Parsimmon.concat(Fable.Parsimmon.IParser{System.String[]})">
+<summary>
+ Equivalent to `parser.map (String.concat &quot;&quot;)`
+</summary>
+</member>
+<member name="M:Fable.Parsimmon.Parsimmon.noneOf(System.String)">
+<summary>
+ Returns a parser that parses comsumes any character of a string other than the characters of the input string
+</summary>
+</member>
+<member name="M:Fable.Parsimmon.Parsimmon.atLeastOneOrMany``1(Fable.Parsimmon.IParser{``0})">
+<summary>
+ Returns a parser that succeeds one or more times
+</summary>
+</member>
+<member name="M:Fable.Parsimmon.Parsimmon.oneOf(System.String)">
+<summary>
+ Returns a parser that parses any of the characters of the input string
+</summary>
+</member>
+<member name="M:Fable.Parsimmon.Parsimmon.str(System.String)">
+<summary>
+ Returns a parser that can only parse the exact given input string
+</summary>
+</member>
+<member name="M:Fable.Parsimmon.Parsimmon.takeWhile(Microsoft.FSharp.Core.FSharpFunc{System.String,System.Boolean})">
+<summary>
+ Returns a parser yield a string containing all the next characters that pass the predicate &quot;f&quot;
+</summary>
+</member>
+<member name="M:Fable.Parsimmon.Parsimmon.satisfy(Microsoft.FSharp.Core.FSharpFunc{System.String,System.Boolean})">
+<summary>
+ Returns a parser that yield a single character if it passes the predicate function.
+</summary>
+</member>
+<member name="M:Fable.Parsimmon.Parsimmon.fail(System.String)">
+<summary>
+ Returns a failing parser with the given message.
+</summary>
+</member>
+<member name="P:Fable.Parsimmon.Parsimmon.all">
+<summary>
+ A parser that consumes and yields the entire remainder of the input.
+</summary>
+</member>
+<member name="M:Fable.Parsimmon.Parsimmon.choose``1(Microsoft.FSharp.Collections.FSharpList{Fable.Parsimmon.IParser{``0}})">
+<summary>
+ Accepts any number of parsers, yielding the value of the first one that succeeds, backtracking in between.
+</summary>
+</member>
+<member name="P:Fable.Parsimmon.Parsimmon.any">
+<summary>
+ A parser that consumes and yields the next character of the input.
+</summary>
+</member>
+<member name="M:Fable.Parsimmon.Parsimmon.tie(Fable.Parsimmon.IParser{System.String[]})">
+<summary>
+ Alias of Parsimmon.concat
+</summary>
+</member>
+<member name="M:Fable.Parsimmon.Parsimmon.map``2(Microsoft.FSharp.Core.FSharpFunc{``0,``1},Fable.Parsimmon.IParser{``0})">
+<summary>
+ Transforms the parsed value of the given parser.
+</summary>
+</member>
+<member name="M:Fable.Parsimmon.Parsimmon.fallback``1(``0,Fable.Parsimmon.IParser{``0})">
+<summary>
+ Returns a new parser which tries &quot;parser&quot; and, if it fails, yields value without consuming any input.
+</summary>
+</member>
+<member name="M:Fable.Parsimmon.Parsimmon.lookahead``1(Fable.Parsimmon.IParser{``0})">
+<summary>
+ Parses using parser, but does not consume what it parses. Yields an empty string.
+</summary>
+</member>
+<member name="M:Fable.Parsimmon.Parsimmon.succeed``1(``0)">
+<summary>
+ Returns a parser that doesn&apos;t consume any input, and yields the given value
+</summary>
+</member>
+<member name="M:Fable.Parsimmon.Parsimmon.notFollowedBy``2(Fable.Parsimmon.IParser{``0},Fable.Parsimmon.IParser{``1})">
+<summary>
+ Returns a parser that looks for anything but whatever &quot;p&quot; wants to parse, and does not consume it. Yields the same result as &quot;before&quot;.
+</summary>
+</member>
+<member name="P:Fable.Parsimmon.Parsimmon.endOfFile">
+<summary>
+ A parser that expects to be at the end of the input (zero characters left).
+</summary>
+</member>
+<member name="P:Fable.Parsimmon.Parsimmon.letters">
+<summary>
+ A parser that consumes one or more letters
+</summary>
+</member>
+<member name="M:Fable.Parsimmon.Parsimmon.timesBetween``1(System.Int32,System.Int32,Fable.Parsimmon.IParser{``0})">
+<summary>
+ Returns a parser that tries `parser` and succeeds if `parser` is able to parse between `min` and `max` times
+</summary>
+</member>
+<member name="P:Fable.Parsimmon.Parsimmon.letter">
+<summary>
+ A parser that consumes one letter
+</summary>
+</member>
+<member name="M:Fable.Parsimmon.Parsimmon.bind``2(Microsoft.FSharp.Core.FSharpFunc{``0,Fable.Parsimmon.IParser{``1}},Fable.Parsimmon.IParser{``0})">
+<summary>
+ Returns a new parser which tries parser &quot;p&quot;, and on success calls the function &quot;f&quot; with the result of the parse, which is expected to return another parser, which will be tried next. This allows you to dynamically decide how to continue the parse, which is impossible with the other combinators.
+</summary>
+</member>
+<member name="M:Fable.Parsimmon.Parsimmon.chain``2(Fable.Parsimmon.IParser{``0},Fable.Parsimmon.IParser{``1})">
+<summary>
+ Expects parser &quot;after&quot; to follow parser &quot;before&quot;, and yields the result of &quot;before&quot;.
+</summary>
+</member>
+<member name="M:Fable.Parsimmon.Parsimmon.seperateByAtLeastOne``2(Fable.Parsimmon.IParser{``0},Fable.Parsimmon.IParser{``1})">
+<summary>
+ This is the same as Parsimmon.sepBy, but matches the parser at least once.
+</summary>
+</member>
+<member name="M:Fable.Parsimmon.Parsimmon.regexGroupNumber(System.String,System.Int32)">
+<summary>
+ Returns a parser that looks for a match to the regexp and yields the entire text matched. The regexp will always match starting at the current parse location.
+</summary>
+</member>
+<member name="M:Fable.Parsimmon.Parsimmon.regex(System.String)">
+<summary>
+ Returns a parser that looks for a match to the regexp and yields the entire text matched. The regexp will always match starting at the current parse location.
+</summary>
+</member>
+<member name="M:Fable.Parsimmon.Parsimmon.atMost``1(System.Int32,Fable.Parsimmon.IParser{``0})">
+<summary>
+ Expects parser at most n times. Yields an array of the results.
+</summary>
+</member>
+<member name="M:Fable.Parsimmon.Parsimmon.atLeast``1(System.Int32,Fable.Parsimmon.IParser{``0})">
+<summary>
+ Expects parser at least n times. Yields an array of the results.
+</summary>
+</member>
+<member name="M:Fable.Parsimmon.Parsimmon.times``1(System.Int32,Fable.Parsimmon.IParser{``0})">
+<summary>
+ Returns a new parser that tries to parse the input exactly `n` times
+</summary>
+</member>
+<member name="M:Fable.Parsimmon.Parsimmon.orTry``1(Fable.Parsimmon.IParser{``0},Fable.Parsimmon.IParser{``0})">
+<summary>
+ Returns a new parser which tries parser, and if it fails uses otherParser. Example:
+</summary>
+</member>
+<member name="P:Fable.Parsimmon.Parsimmon.index">
+<summary>
+ A parser that consumes no input and yields an object an object representing the current offset into the parse: it has a 0-based character offset property and 1-based line and column properties
+</summary>
+</member>
+</members>
+</doc>

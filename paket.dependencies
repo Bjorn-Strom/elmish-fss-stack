@@ -1,0 +1,14 @@
+group Client
+    source https://www.nuget.org/api/v2
+    nuget FSharp.Core
+    nuget Fable.Core
+    nuget Fable.Elmish.React
+    nuget Fable.Remoting.Client
+    nuget Fable.React
+    nuget Fss-lib
+
+group Server
+    source https://www.nuget.org/api/v2
+    nuget FSharp.Core
+    nuget Fable.Remoting.Giraffe
+    nuget Saturn

@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doc>
+<assembly><name>Fable.Elmish</name></assembly>
+<members>
+<member name="T:Elmish.Cmd`1">
+<summary>
+ Cmd - container for subscriptions that may produce messages
+</summary>
+</member>
+<member name="T:Elmish.Sub`1">
+<summary>
+ Subscription - return immediately, but may schedule dispatch of a message at any time
+</summary>
+</member>
+<member name="T:Elmish.Dispatch`1">
+<summary>
+ Dispatch - feed new message into the processing loop
+</summary>
+</member>
+<member name="T:Elmish.Program`4">
+<summary>
+ Program type captures various aspects of program behavior
+</summary>
+</member>
+<member name="M:Elmish.Cmd.ofSub``1(Microsoft.FSharp.Core.FSharpFunc{Microsoft.FSharp.Core.FSharpFunc{``0,Microsoft.FSharp.Core.Unit},Microsoft.FSharp.Core.Unit})">
+<summary>
+ Command to call the subscriber
+</summary>
+</member>
+<member name="M:Elmish.Cmd.batch``2(``0)">
+<summary>
+ Aggregate multiple commands
+</summary>
+</member>
+<member name="M:Elmish.Cmd.map``2(Microsoft.FSharp.Core.FSharpFunc{``0,``1},Microsoft.FSharp.Collections.FSharpList{Microsoft.FSharp.Core.FSharpFunc{Microsoft.FSharp.Core.FSharpFunc{``0,Microsoft.FSharp.Core.Unit},Microsoft.FSharp.Core.Unit}})">
+<summary>
+ When emitting the message, map to another type
+</summary>
+</member>
+<member name="M:Elmish.Cmd.none``1">
+<summary>
+ None - no commands, also known as `[]`
+</summary>
+</member>
+<member name="M:Elmish.Cmd.exec``1(Microsoft.FSharp.Core.FSharpFunc{System.Exception,Microsoft.FSharp.Core.Unit},Microsoft.FSharp.Core.FSharpFunc{``0,Microsoft.FSharp.Core.Unit},Microsoft.FSharp.Collections.FSharpList{Microsoft.FSharp.Core.FSharpFunc{Microsoft.FSharp.Core.FSharpFunc{``0,Microsoft.FSharp.Core.Unit},Microsoft.FSharp.Core.Unit}})">
+<summary>
+ Execute the commands using the supplied dispatcher
+</summary>
+</member>
+<member name="M:Elmish.Cmd.OfPromise.result``2(Fable.Core.JS.Promise{``0})">
+<summary>
+ Command to dispatch the `promise` result
+</summary>
+</member>
+<member name="M:Elmish.Cmd.OfPromise.attempt``3(Microsoft.FSharp.Core.FSharpFunc{``0,Fable.Core.JS.Promise{Microsoft.FSharp.Core.Unit}},``0,Microsoft.FSharp.Core.FSharpFunc{``1,``2})">
+<summary>
+ Command to call `promise` block and map the error
+</summary>
+</member>
+<member name="M:Elmish.Cmd.OfPromise.perform``4(Microsoft.FSharp.Core.FSharpFunc{``0,Fable.Core.JS.Promise{``1}},``0,Microsoft.FSharp.Core.FSharpFunc{``1,``2})">
+<summary>
+ Command to call `promise` block and map the success
+</summary>
+</member>
+<member name="M:Elmish.Cmd.OfPromise.either``4(Microsoft.FSharp.Core.FSharpFunc{``0,Fable.Core.JS.Promise{``1}},``0,Microsoft.FSharp.Core.FSharpFunc{``1,``2},Microsoft.FSharp.Core.FSharpFunc{``3,``2})">
+<summary>
+ Command to call `promise` block and map the results
+</summary>
+</member>
+<member name="M:Elmish.Cmd.OfAsyncImmediate.result``1(Microsoft.FSharp.Control.FSharpAsync{``0})">
+<summary>
+ Command that will evaluate an async block to the message
+</summary>
+</member>
+<member name="M:Elmish.Cmd.OfAsyncImmediate.attempt``3(Microsoft.FSharp.Core.FSharpFunc{``0,Microsoft.FSharp.Control.FSharpAsync{``1}},``0,Microsoft.FSharp.Core.FSharpFunc{System.Exception,``2})">
+<summary>
+ Command that will evaluate an async block and map the error (of exception)
+</summary>
+</member>
+<member name="M:Elmish.Cmd.OfAsyncImmediate.perform``3(Microsoft.FSharp.Core.FSharpFunc{``0,Microsoft.FSharp.Control.FSharpAsync{``1}},``0,Microsoft.FSharp.Core.FSharpFunc{``1,``2})">
+<summary>
+ Command that will evaluate an async block and map the success
+</summary>
+</member>
+<member name="M:Elmish.Cmd.OfAsyncImmediate.either``3(Microsoft.FSharp.Core.FSharpFunc{``0,Microsoft.FSharp.Control.FSharpAsync{``1}},``0,Microsoft.FSharp.Core.FSharpFunc{``1,``2},Microsoft.FSharp.Core.FSharpFunc{System.Exception,``2})">
+<summary>
+ Command that will evaluate an async block and map the result
+ into success or error (of exception)
+</summary>
+</member>
+<member name="M:Elmish.Cmd.OfAsync.result``1(Microsoft.FSharp.Control.FSharpAsync{``0})">
+<summary>
+ Command that will evaluate an async block to the message
+</summary>
+</member>
+<member name="M:Elmish.Cmd.OfAsync.attempt``3(Microsoft.FSharp.Core.FSharpFunc{``0,Microsoft.FSharp.Control.FSharpAsync{``1}},``0,Microsoft.FSharp.Core.FSharpFunc{System.Exception,``2})">
+<summary>
+ Command that will evaluate an async block and map the error (of exception)
+</summary>
+</member>
+<member name="M:Elmish.Cmd.OfAsync.perform``3(Microsoft.FSharp.Core.FSharpFunc{``0,Microsoft.FSharp.Control.FSharpAsync{``1}},``0,Microsoft.FSharp.Core.FSharpFunc{``1,``2})">
+<summary>
+ Command that will evaluate an async block and map the success
+</summary>
+</member>
+<member name="M:Elmish.Cmd.OfAsync.either``3(Microsoft.FSharp.Core.FSharpFunc{``0,Microsoft.FSharp.Control.FSharpAsync{``1}},``0,Microsoft.FSharp.Core.FSharpFunc{``1,``2},Microsoft.FSharp.Core.FSharpFunc{System.Exception,``2})">
+<summary>
+ Command that will evaluate an async block and map the result
+ into success or error (of exception)
+</summary>
+</member>
+<member name="M:Elmish.Cmd.OfAsyncWith.result``1(Microsoft.FSharp.Core.FSharpFunc{Microsoft.FSharp.Control.FSharpAsync{Microsoft.FSharp.Core.Unit},Microsoft.FSharp.Core.Unit},Microsoft.FSharp.Control.FSharpAsync{``0})">
+<summary>
+ Command that will evaluate an async block to the message
+</summary>
+</member>
+<member name="M:Elmish.Cmd.OfAsyncWith.attempt``3(Microsoft.FSharp.Core.FSharpFunc{Microsoft.FSharp.Control.FSharpAsync{Microsoft.FSharp.Core.Unit},Microsoft.FSharp.Core.Unit},Microsoft.FSharp.Core.FSharpFunc{``0,Microsoft.FSharp.Control.FSharpAsync{``1}},``0,Microsoft.FSharp.Core.FSharpFunc{System.Exception,``2})">
+<summary>
+ Command that will evaluate an async block and map the error (of exception)
+</summary>
+</member>
+<member name="M:Elmish.Cmd.OfAsyncWith.perform``3(Microsoft.FSharp.Core.FSharpFunc{Microsoft.FSharp.Control.FSharpAsync{Microsoft.FSharp.Core.Unit},Microsoft.FSharp.Core.Unit},Microsoft.FSharp.Core.FSharpFunc{``0,Microsoft.FSharp.Control.FSharpAsync{``1}},``0,Microsoft.FSharp.Core.FSharpFunc{``1,``2})">
+<summary>
+ Command that will evaluate an async block and map the success
+</summary>
+</member>
+<member name="M:Elmish.Cmd.OfAsyncWith.either``3(Microsoft.FSharp.Core.FSharpFunc{Microsoft.FSharp.Control.FSharpAsync{Microsoft.FSharp.Core.Unit},Microsoft.FSharp.Core.Unit},Microsoft.FSharp.Core.FSharpFunc{``0,Microsoft.FSharp.Control.FSharpAsync{``1}},``0,Microsoft.FSharp.Core.FSharpFunc{``1,``2},Microsoft.FSharp.Core.FSharpFunc{System.Exception,``2})">
+<summary>
+ Command that will evaluate an async block and map the result
+ into success or error (of exception)
+</summary>
+</member>
+<member name="M:Elmish.Cmd.OfFunc.result``1(``0)">
+<summary>
+ Command to issue a specific message
+</summary>
+</member>
+<member name="M:Elmish.Cmd.OfFunc.attempt``2(Microsoft.FSharp.Core.FSharpFunc{``0,Microsoft.FSharp.Core.Unit},``0,Microsoft.FSharp.Core.FSharpFunc{System.Exception,``1})">
+<summary>
+ Command to evaluate a simple function and map the error (in case of exception)
+</summary>
+</member>
+<member name="M:Elmish.Cmd.OfFunc.perform``3(Microsoft.FSharp.Core.FSharpFunc{``0,``1},``0,Microsoft.FSharp.Core.FSharpFunc{``1,``2})">
+<summary>
+ Command to evaluate a simple function and map the success to a message
+ discarding any possible error
+</summary>
+</member>
+<member name="M:Elmish.Cmd.OfFunc.either``3(Microsoft.FSharp.Core.FSharpFunc{``0,``1},``0,Microsoft.FSharp.Core.FSharpFunc{``1,``2},Microsoft.FSharp.Core.FSharpFunc{System.Exception,``2})">
+<summary>
+ Command to evaluate a simple function and map the result
+ into success or error (of exception)
+</summary>
+</member>
+<member name="T:Elmish.Cmd">
+<summary>
+ Cmd module for creating and manipulating commands
+</summary>
+</member>
+<member name="M:Elmish.ProgramModule.run``3(Elmish.Program{Microsoft.FSharp.Core.Unit,``0,``1,``2})">
+<summary>
+ Start the dispatch loop with `unit` for the init() function.
+</summary>
+</member>
+<member name="M:Elmish.ProgramModule.runWith``4(``0,Elmish.Program{``0,``1,``2,``3})">
+<summary>
+ Start the program loop.
+ arg: argument to pass to the init() function.
+ program: program created with &apos;mkSimple&apos; or &apos;mkProgram&apos;.
+</summary>
+</member>
+<member name="M:Elmish.ProgramModule.map``8(Microsoft.FSharp.Core.FSharpFunc{Microsoft.FSharp.Core.FSharpFunc{``0,System.Tuple{``1,Microsoft.FSharp.Collections.FSharpList{Microsoft.FSharp.Core.FSharpFunc{Microsoft.FSharp.Core.FSharpFunc{``2,Microsoft.FSharp.Core.Unit},Microsoft.FSharp.Core.Unit}}}},Microsoft.FSharp.Core.FSharpFunc{``3,System.Tuple{``4,Microsoft.FSharp.Collections.FSharpList{Microsoft.FSharp.Core.FSharpFunc{Microsoft.FSharp.Core.FSharpFunc{``5,Microsoft.FSharp.Core.Unit},Microsoft.FSharp.Core.Unit}}}}},Microsoft.FSharp.Core.FSharpFunc{Microsoft.FSharp.Core.FSharpFunc{``2,Microsoft.FSharp.Core.FSharpFunc{``1,System.Tuple{``1,Microsoft.FSharp.Collections.FSharpList{Microsoft.FSharp.Core.FSharpFunc{Microsoft.FSharp.Core.FSharpFunc{``2,Microsoft.FSharp.Core.Unit},Microsoft.FSharp.Core.Unit}}}}},Microsoft.FSharp.Core.FSharpFunc{``5,Microsoft.FSharp.Core.FSharpFunc{``4,System.Tuple{``4,Microsoft.FSharp.Collections.FSharpList{Microsoft.FSharp.Core.FSharpFunc{Microsoft.FSharp.Core.FSharpFunc{``5,Microsoft.FSharp.Core.Unit},Microsoft.FSharp.Core.Unit}}}}}},Microsoft.FSharp.Core.FSharpFunc{Microsoft.FSharp.Core.FSharpFunc{``1,Microsoft.FSharp.Core.FSharpFunc{Microsoft.FSharp.Core.FSharpFunc{``2,Microsoft.FSharp.Core.Unit},``6}},Microsoft.FSharp.Core.FSharpFunc{``4,Microsoft.FSharp.Core.FSharpFunc{Microsoft.FSharp.Core.FSharpFunc{``5,Microsoft.FSharp.Core.Unit},``7}}},Microsoft.FSharp.Core.FSharpFunc{Microsoft.FSharp.Core.FSharpFunc{``1,Microsoft.FSharp.Core.FSharpFunc{Microsoft.FSharp.Core.FSharpFunc{``2,Microsoft.FSharp.Core.Unit},Microsoft.FSharp.Core.Unit}},Microsoft.FSharp.Core.FSharpFunc{``4,Microsoft.FSharp.Core.FSharpFunc{Microsoft.FSharp.Core.FSharpFunc{``5,Microsoft.FSharp.Core.Unit},Microsoft.FSharp.Core.Unit}}},Microsoft.FSharp.Core.FSharpFunc{Microsoft.FSharp.Core.FSharpFunc{``1,Microsoft.FSharp.Collections.FSharpList{Microsoft.FSharp.Core.FSharpFunc{Microsoft.FSharp.Core.FSharpFunc{``2,Microsoft.FSharp.Core.Unit},Microsoft.FSharp.Core.Unit}}},Microsoft.FSharp.Core.FSharpFunc{``4,Microsoft.FSharp.Collections.FSharpList{Microsoft.FSharp.Core.FSharpFunc{Microsoft.FSharp.Core.FSharpFunc{``5,Microsoft.FSharp.Core.Unit},Microsoft.FSharp.Core.Unit}}}},Elmish.Program{``0,``1,``2,``6})">
+<summary>
+ For library authors only: map the program type
+</summary>
+</member>
+<member name="M:Elmish.ProgramModule.withSyncDispatch``4(Microsoft.FSharp.Core.FSharpFunc{Microsoft.FSharp.Core.FSharpFunc{``0,Microsoft.FSharp.Core.Unit},Microsoft.FSharp.Core.FSharpFunc{``0,Microsoft.FSharp.Core.Unit}},Elmish.Program{``1,``2,``0,``3})">
+<summary>
+ For library authors only: function to synchronize the dispatch function
+</summary>
+</member>
+<member name="M:Elmish.ProgramModule.view``4(Elmish.Program{``0,``1,``2,``3})">
+<summary>
+ For library authors only: return the view function 
+</summary>
+</member>
+<member name="M:Elmish.ProgramModule.setState``4(Elmish.Program{``0,``1,``2,``3})">
+<summary>
+ For library authors only: return the function to render the state 
+</summary>
+</member>
+<member name="M:Elmish.ProgramModule.withSetState``4(Microsoft.FSharp.Core.FSharpFunc{``0,Microsoft.FSharp.Core.FSharpFunc{Microsoft.FSharp.Core.FSharpFunc{``1,Microsoft.FSharp.Core.Unit},Microsoft.FSharp.Core.Unit}},Elmish.Program{``2,``0,``1,``3})">
+<summary>
+ For library authors only: function to render the view with the latest state 
+</summary>
+</member>
+<member name="M:Elmish.ProgramModule.onError``4(Elmish.Program{``0,``1,``2,``3})">
+<summary>
+ For library authors only: get the current error handler 
+</summary>
+</member>
+<member name="M:Elmish.ProgramModule.mapErrorHandler``4(Microsoft.FSharp.Core.FSharpFunc{Microsoft.FSharp.Core.FSharpFunc{System.Tuple{System.String,System.Exception},Microsoft.FSharp.Core.Unit},Microsoft.FSharp.Core.FSharpFunc{System.Tuple{System.String,System.Exception},Microsoft.FSharp.Core.Unit}},Elmish.Program{``0,``1,``2,``3})">
+<summary>
+ For library authors only: map existing error handler and return new `Program` 
+</summary>
+</member>
+<member name="M:Elmish.ProgramModule.withErrorHandler``4(Microsoft.FSharp.Core.FSharpFunc{System.Tuple{System.String,System.Exception},Microsoft.FSharp.Core.Unit},Elmish.Program{``0,``1,``2,``3})">
+<summary>
+ Handle dispatch loop exceptions
+</summary>
+</member>
+<member name="M:Elmish.ProgramModule.withTrace``4(Microsoft.FSharp.Core.FSharpFunc{``0,Microsoft.FSharp.Core.FSharpFunc{``1,Microsoft.FSharp.Core.Unit}},Elmish.Program{``2,``1,``0,``3})">
+<summary>
+ Trace all the messages as they update the model
+</summary>
+</member>
+<member name="M:Elmish.ProgramModule.withConsoleTrace``4(Elmish.Program{``0,``1,``2,``3})">
+<summary>
+ Trace all the updates to the console
+</summary>
+</member>
+<member name="M:Elmish.ProgramModule.withSubscription``4(Microsoft.FSharp.Core.FSharpFunc{``0,Microsoft.FSharp.Collections.FSharpList{Microsoft.FSharp.Core.FSharpFunc{Microsoft.FSharp.Core.FSharpFunc{``1,Microsoft.FSharp.Core.Unit},Microsoft.FSharp.Core.Unit}}},Elmish.Program{``2,``0,``1,``3})">
+<summary>
+ Subscribe to external source of events.
+ The subscription is called once - with the initial model, but can dispatch new messages at any time.
+</summary>
+</member>
+<member name="M:Elmish.ProgramModule.mkSimple``4(Microsoft.FSharp.Core.FSharpFunc{``0,``1},Microsoft.FSharp.Core.FSharpFunc{``2,Microsoft.FSharp.Core.FSharpFunc{``1,``1}},Microsoft.FSharp.Core.FSharpFunc{``1,Microsoft.FSharp.Core.FSharpFunc{Microsoft.FSharp.Core.FSharpFunc{``2,Microsoft.FSharp.Core.Unit},``3}})">
+<summary>
+ Simple program that produces only new state with `init` and `update`.
+</summary>
+</member>
+<member name="M:Elmish.ProgramModule.mkProgram``4(Microsoft.FSharp.Core.FSharpFunc{``0,System.Tuple{``1,Microsoft.FSharp.Collections.FSharpList{Microsoft.FSharp.Core.FSharpFunc{Microsoft.FSharp.Core.FSharpFunc{``2,Microsoft.FSharp.Core.Unit},Microsoft.FSharp.Core.Unit}}}},Microsoft.FSharp.Core.FSharpFunc{``2,Microsoft.FSharp.Core.FSharpFunc{``1,System.Tuple{``1,Microsoft.FSharp.Collections.FSharpList{Microsoft.FSharp.Core.FSharpFunc{Microsoft.FSharp.Core.FSharpFunc{``2,Microsoft.FSharp.Core.Unit},Microsoft.FSharp.Core.Unit}}}}},Microsoft.FSharp.Core.FSharpFunc{``1,Microsoft.FSharp.Core.FSharpFunc{Microsoft.FSharp.Core.FSharpFunc{``2,Microsoft.FSharp.Core.Unit},``3}})">
+<summary>
+ Typical program, new commands are produced by `init` and `update` along with the new state.
+</summary>
+</member>
+<member name="T:Elmish.ProgramModule">
+<summary>
+ Program module - functions to manipulate program instances
+</summary>
+</member>
+</members>
+</doc>

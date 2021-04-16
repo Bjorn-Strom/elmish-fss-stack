@@ -1,0 +1,15 @@
+D: /_rels
+F: /_rels/.rels
+D: /lib
+D: /lib/netstandard2.0
+F: /lib/netstandard2.0/Browser.WebStorage.xml
+F: /lib/netstandard2.0/Browser.WebStorage.dll
+D: /package
+D: /package/services
+D: /package/services/metadata
+D: /package/services/metadata/core-properties
+F: /package/services/metadata/core-properties/9fe92ca588d34a8b9f529f931b401f89.psmdcp
+F: /[Content_Types].xml
+F: /fable.browser.webstorage.1.0.0.nupkg
+F: /Fable.Browser.WebStorage.nuspec
+F: /.signature.p7s

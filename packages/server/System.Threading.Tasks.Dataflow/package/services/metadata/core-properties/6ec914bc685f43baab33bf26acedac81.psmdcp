@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<coreProperties xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.openxmlformats.org/package/2006/metadata/core-properties">
+  <dc:creator>Microsoft</dc:creator>
+  <dc:description>TPL Dataflow promotes actor/agent-oriented designs through primitives for in-process message passing, dataflow, and pipelining. TDF builds upon the APIs and scheduling infrastructure provided by the Task Parallel Library (TPL), and integrates with the language support for asynchrony provided by C#, Visual Basic, and F#.
+
+Commonly Used Types:
+System.Threading.Tasks.Dataflow.ActionBlock&lt;TInput&gt;
+System.Threading.Tasks.Dataflow.BatchBlock&lt;T&gt;
+System.Threading.Tasks.Dataflow.BatchedJoinBlock&lt;T1, T2&gt;
+System.Threading.Tasks.Dataflow.BatchedJoinBlock&lt;T1, T2, T3&gt;
+System.Threading.Tasks.Dataflow.BroadcastBlock&lt;T&gt;
+System.Threading.Tasks.Dataflow.BufferBlock&lt;T&gt;
+System.Threading.Tasks.Dataflow.DataflowBlock
+System.Threading.Tasks.Dataflow.JoinBlock&lt;T1, T2&gt;
+System.Threading.Tasks.Dataflow.JoinBlock&lt;T1, T2, T3&gt;
+System.Threading.Tasks.Dataflow.TransformBlock&lt;TInput, TOutput&gt;
+System.Threading.Tasks.Dataflow.TransformManyBlock&lt;TInput, TOutput&gt;
+System.Threading.Tasks.Dataflow.WriteOnceBlock&lt;T&gt;
+ 
+When using NuGet 3.x this package requires at least version 3.4.</dc:description>
+  <dc:identifier>System.Threading.Tasks.Dataflow</dc:identifier>
+  <version>5.0.0</version>
+  <keywords></keywords>
+  <lastModifiedBy>NuGet.Packaging, Version=5.6.0.2, Culture=neutral, PublicKeyToken=31bf3856ad364e35;</lastModifiedBy>
+</coreProperties>

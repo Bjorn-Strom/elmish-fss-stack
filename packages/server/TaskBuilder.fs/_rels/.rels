@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships">
+  <Relationship Type="http://schemas.microsoft.com/packaging/2010/07/manifest" Target="/TaskBuilder.fs.nuspec" Id="Rf06d51f596da4d97" />
+  <Relationship Type="http://schemas.openxmlformats.org/package/2006/relationships/metadata/core-properties" Target="/package/services/metadata/core-properties/0daa25e0ff2c43f8bafb6fcb001dfe35.psmdcp" Id="R554bb645efc94322" />
+</Relationships>

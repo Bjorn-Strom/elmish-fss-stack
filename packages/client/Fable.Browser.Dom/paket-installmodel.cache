@@ -1,0 +1,15 @@
+D: /_rels
+F: /_rels/.rels
+D: /lib
+D: /lib/netstandard2.0
+F: /lib/netstandard2.0/Browser.Dom.xml
+F: /lib/netstandard2.0/Browser.Dom.dll
+D: /package
+D: /package/services
+D: /package/services/metadata
+D: /package/services/metadata/core-properties
+F: /package/services/metadata/core-properties/bb1eec570f2d4f5a86de5af7358bdcc7.psmdcp
+F: /[Content_Types].xml
+F: /Fable.Browser.Dom.nuspec
+F: /fable.browser.dom.2.3.0.nupkg
+F: /.signature.p7s

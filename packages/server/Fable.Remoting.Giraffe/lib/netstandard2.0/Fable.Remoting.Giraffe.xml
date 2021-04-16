@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doc>
+<assembly><name>Fable.Remoting.Giraffe</name></assembly>
+<members>
+<member name="M:Fable.Remoting.Giraffe.Remoting.buildHttpHandler``1(Fable.Remoting.Server.RemotingOptions{Microsoft.AspNetCore.Http.HttpContext,``0})">
+<summary>
+ Builds a HttpHandler from the given implementation and options
+</summary>
+</member>
+<member name="P:Fable.Remoting.Giraffe.GiraffeUtil.halt">
+<summary>
+ Used to halt the forwarding of the Http context
+</summary>
+</member>
+<member name="M:Fable.Remoting.Giraffe.GiraffeUtil.fail``1(System.Exception,Fable.Remoting.Server.RouteInfo{Microsoft.AspNetCore.Http.HttpContext},Fable.Remoting.Server.RemotingOptions{Microsoft.AspNetCore.Http.HttpContext,``0})">
+<summary>
+ Handles thrown exceptions
+</summary>
+</member>
+</members>
+</doc>

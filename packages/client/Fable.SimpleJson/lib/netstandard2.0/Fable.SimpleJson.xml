@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doc>
+<assembly><name>Fable.SimpleJson</name></assembly>
+<members>
+<member name="T:Fable.SimpleJson.TypeInfo">
+<summary>
+ A type that encodes type information which is easily serializable
+</summary>
+</member>
+<member name="T:Fable.SimpleJson.Json">
+<summary>
+ A type representing Javascript Object Notation
+</summary>
+</member>
+<member name="M:Fable.SimpleJson.Converter.enumUnion(Fable.SimpleJson.TypeInfo)">
+<summary>
+ returns whether the discrimiated union type is like a enum
+</summary>
+</member>
+<member name="M:Fable.SimpleJson.Converter.isPrimitive(Fable.SimpleJson.TypeInfo)">
+<summary>
+ returns whether a type is primitive
+</summary>
+</member>
+<member name="M:Fable.SimpleJson.SimpleJson.mapKeysByPath(Microsoft.FSharp.Core.FSharpFunc{Microsoft.FSharp.Collections.FSharpList{System.String},Microsoft.FSharp.Core.FSharpOption{System.String}},Fable.SimpleJson.Json)">
+<summary>
+ Transforms keys of object selectively by path segments
+</summary>
+</member>
+<member name="M:Fable.SimpleJson.SimpleJson.mapbyKey(Microsoft.FSharp.Core.FSharpFunc{System.String,Microsoft.FSharp.Core.FSharpFunc{Fable.SimpleJson.Json,Fable.SimpleJson.Json}},Fable.SimpleJson.Json)">
+<summary>
+ Transforms object values recursively using function `f` that takes the key and value of the object and returns a new value
+</summary>
+</member>
+<member name="M:Fable.SimpleJson.SimpleJson.mapKeys(Microsoft.FSharp.Core.FSharpFunc{System.String,System.String},Fable.SimpleJson.Json)">
+<summary>
+ Transforms all keys of the objects within the Json structure
+</summary>
+</member>
+<member name="M:Fable.SimpleJson.SimpleJson.fromObjectLiteral``1(``0)">
+<summary>
+ Tries to convert an object literal to the Json by calling JSON.stringify on the object first
+</summary>
+</member>
+<member name="M:Fable.SimpleJson.SimpleJson.parseNative(System.String)">
+<summary>
+ Parses and converts the input string to Json using Javascript&apos;s native parsing capabilities
+</summary>
+</member>
+<member name="M:Fable.SimpleJson.SimpleJson.toString(Fable.SimpleJson.Json)">
+<summary>
+ Stringifies a Json object back to string representation
+</summary>
+</member>
+<member name="M:Fable.SimpleJson.SimpleJson.parse(System.String)">
+<summary>
+ Parses the input string into a structured JSON data. Fails with an exception if parsing fails.
+</summary>
+</member>
+<member name="M:Fable.SimpleJson.SimpleJson.tryParse(System.String)">
+<summary>
+ Tries to parse a string into a Json structured JSON data.
+</summary>
+</member>
+<member name="M:Fable.SimpleJson.ConverterExtensions.Json.tryConvertFromJsonAs.Static``1(Fable.SimpleJson.Json)">
+<summary>
+ Tries to convert parsed JSON object as the given type parameter argument, this method is used when you want to apply transformations to the JSON object before parsing
+</summary>
+</member>
+<member name="M:Fable.SimpleJson.ConverterExtensions.Json.convertFromJsonAs.Static``1(Fable.SimpleJson.Json)">
+<summary>
+ Tries to convert parsed JSON object as the given type parameter argument, this method is used when you want to apply transformations to the JSON object before parsing
+</summary>
+</member>
+<member name="M:Fable.SimpleJson.ConverterExtensions.Json.tryParseNativeAs.Static``1(System.String)">
+<summary>
+ Tries to parse the input string as JSON using native parsing and tries to convert it as the given type argument
+</summary>
+</member>
+<member name="M:Fable.SimpleJson.ConverterExtensions.Json.tryParseAs.Static``1(System.String)">
+<summary>
+ Tries to parse the input string as JSON and tries to convert it as the given type argument, returing a (hopefully) useful error message when it fails
+</summary>
+</member>
+<member name="M:Fable.SimpleJson.ConverterExtensions.Json.parseNativeAs.Static``1(System.String)">
+<summary>
+ Parses the input string as JSON using native parsing and tries to convert it as the given type argument
+</summary>
+</member>
+<member name="M:Fable.SimpleJson.ConverterExtensions.Json.parseAs.Static``1(System.String)">
+<summary>
+ Parses the input string as JSON and tries to convert it as the given type argument
+</summary>
+</member>
+<member name="M:Fable.SimpleJson.ConverterExtensions.Json.serialize.Static``1(``0)">
+ <summary>
+ Serialized the input value into JSON using Reflection. Compatible with Fable 2.x and Fable 3 (codename: nagareyama)
+ </summary>
+</member>
+<member name="M:Fable.SimpleJson.ConverterExtensions.Json.stringify.Static(System.Object)">
+ <summary>
+ Serialized the input value object into JSON, uses built-in JSON.stringify and should be used with Fable 2.x or earlier
+ </summary>
+</member>
+<member name="M:Fable.SimpleJson.Convert.arrayLike(Fable.SimpleJson.TypeInfo)">
+ <summary>Returns whether the type information resembles a type of a sequence of elements (including tuples)</summary>
+</member>
+<member name="M:Fable.SimpleJson.Convert.usingFable3">
+ <summary>Uses internal representation of F# maps to determine whether we are using Fable 3 or not</summary>
+</member>
+<member name="M:Fable.SimpleJson.Node.bytesFromBase64(System.String)">
+<summary>
+ Converts Base64 string into a byte array in Node environment
+</summary>
+</member>
+</members>
+</doc>
