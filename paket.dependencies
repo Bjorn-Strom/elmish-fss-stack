@@ -1,7 +1,7 @@
 group Client
     source https://www.nuget.org/api/v2
     nuget FSharp.Core
-    nuget Fable.Core
+    nuget Fable.Core 3.2.6
     nuget Fable.Elmish.React
     nuget Fable.Remoting.Client
     nuget Fable.React

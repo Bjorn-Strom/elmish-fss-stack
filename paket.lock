@@ -70,8 +70,8 @@ NUGET
 GROUP Server
 NUGET
   remote: https://www.nuget.org/api/v2
-    Fable.Remoting.Giraffe (4.19)
-      Fable.Remoting.Server (>= 5.17) - restriction: >= netstandard2.0
+    Fable.Remoting.Giraffe (4.20)
+      Fable.Remoting.Server (>= 5.18) - restriction: >= netstandard2.0
       FSharp.Core (>= 4.7.2) - restriction: >= netstandard2.0
       Giraffe (>= 4.1) - restriction: >= netstandard2.0
     Fable.Remoting.Json (2.16) - restriction: >= netstandard2.0
@@ -80,7 +80,7 @@ NUGET
     Fable.Remoting.MsgPack (1.9) - restriction: >= netstandard2.0
       FSharp.Core (>= 4.7.2) - restriction: || (>= net45) (>= netstandard2.0)
       TypeShape (>= 8.0.1) - restriction: || (>= net45) (>= netstandard2.0)
-    Fable.Remoting.Server (5.17) - restriction: >= netstandard2.0
+    Fable.Remoting.Server (5.18) - restriction: >= netstandard2.0
       Fable.Remoting.Json (>= 2.16) - restriction: || (>= net462) (>= netstandard2.0)
       Fable.Remoting.MsgPack (>= 1.9) - restriction: || (>= net462) (>= netstandard2.0)
       FSharp.Core (>= 4.7.2) - restriction: || (>= net462) (>= netstandard2.0)

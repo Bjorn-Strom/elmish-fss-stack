@@ -1,0 +1,13 @@
+*/node_modules
+packages
+paket-files
+bin
+obj
+*/bin
+*/obj
+.fable
+*/.fable
+**.js
+dist
+*/.parcel-cache
+*/dist
