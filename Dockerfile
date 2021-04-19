@@ -5,24 +5,29 @@ WORKDIR /app
 
 RUN apk add --update nodejs npm netcat-openbsd
 
-COPY client/package.json client/package.json
-COPY client/package-lock.json client/package-lock.json
 COPY paket.dependencies ./paket.dependencies
 COPY .config/. .config/.
 COPY .paket/. .paket/.
 COPY paket.lock paket.lock
 
-COPY client/. client/.
+COPY server/. server/.
 COPY shared/. shared/.
+COPY client/. client/.
 
 RUN dotnet tool restore
 RUN dotnet paket install
 WORKDIR /app/client
-RUN npm i
+RUN npm ci
 RUN npm run build
+WORKDIR /app/server
+RUN dotnet publish -c release -o out
 
 # Run
-FROM nginx:stable-alpine
-COPY --from=build /app/client/dist /usr/share/nginx/html
+FROM mcr.microsoft.com/dotnet/sdk:5.0-alpine
+WORKDIR /app/server
+COPY --from=build /app/server/out .
+RUN mkdir dist
+COPY --from=build /app/client/dist dist/.
+ENV ASPNETCORE_URLS=http://+:80
 EXPOSE 80
-CMD ["nginx", "-g", "daemon off;"]
+CMD dotnet server.dll

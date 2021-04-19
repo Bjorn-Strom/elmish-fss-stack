@@ -27,9 +27,8 @@ let webApp =
 
 let app =
     application {
-        url "http://0.0.0.0:8085"
         use_router webApp
-        use_static "public"
+        use_static "dist"
         use_gzip
     }
 
