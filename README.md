@@ -17,6 +17,8 @@ This template implements the basic todo sample from https://reactjs.org/ and has
 
 Inspired by the [SAFE-stack](https://safe-stack.github.io/)
 
+If all you need is a frontend app check out this [template](https://github.com/Bjorn-Strom/elmish-fss-template)
+
 ## Why another stack though?
 While the SAFE-STACK is awesome I got tired of dealing with webpack and fake.
 I find those things really annoying and I prefer simpler more lightweight alternatives.
