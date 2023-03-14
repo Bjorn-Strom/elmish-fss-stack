@@ -1,8 +1,11 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 <PropertyGroup>
-    <TargetFramework>net5.0</TargetFramework>
+    <TargetFramework>net6.0</TargetFramework>
 </PropertyGroup>
 <ItemGroup>
     <Compile Include="Shared.fs" />
+</ItemGroup>
+<ItemGroup>
+  <PackageReference Update="FSharp.Core" Version="7.0.200" />
 </ItemGroup>
 </Project>

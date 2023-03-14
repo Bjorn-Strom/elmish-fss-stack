@@ -10,7 +10,7 @@ Frontend:
 - Elmish
 
 Backend:
-- Suave
+- Saturn
 - Fable remoting
 
 This template implements the basic todo sample from https://reactjs.org/ and has a route to add and complete todos.

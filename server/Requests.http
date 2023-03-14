@@ -1,0 +1,11 @@
+GET localhost:5000/todos
+
+### Disse IDene endrer seg
+PUT localhost:5000/todos/33e84cbe-2c3d-42ea-8511-06b87d9298b2
+Content-Type: application/json
+
+{
+    "Id": "33e84cbe-2c3d-42ea-8511-06b87d9298b2",
+    "Title": "Purchase groceries",
+    "Done": false
+}

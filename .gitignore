@@ -23,7 +23,10 @@ node_modules
 packages
 .parcel-cache
 *.js
+*.js.map
 **/*.js
+**/*.js.map
+
 
 ### macOS ###
 # General

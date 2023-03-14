@@ -1,12 +1,9 @@
-module Client
+module App
 
-open Elmish
-open Elmish.React
-open Fable.React
-open Fable.React.Props
-open Fable.Remoting.Client
+open Fetch
+open Thoth.Json
+open Feliz
 open Fss
-
 open Shared
 
 // Colors
@@ -14,154 +11,119 @@ let blue = hex "0d6efd"
 let darkBlue = hex "01398D"
 
 // Font
-let textFont = FontFamily.custom "Roboto"
-let container =
-    fss
-        [
-            Display.flex
-            FlexDirection.column
-            Padding.value(rem 0., rem 1.5)
-            textFont
-        ]
-let header = fss [ Color' blue ]
+let textFont = FontFamily.value "Roboto"
 let todoStyle =
     let fadeInAnimation =
         keyframes
             [
                 frame 0
                     [
-                        Opacity' 0.
-                        Transforms [ Transform.translateY <| px 20 ]
+                        Opacity.value 0.
+                        Transform.value [ Transform.translateY <| px 20 ]
                     ]
                 frame 100
                     [
-                        Opacity' 1.
-                        Transforms [ Transform.translateY <| px 0 ]
+                        Opacity.value 1.
+                        Transform.value [ Transform.translateY <| px 0 ]
                     ]
             ]
     let indexCounter = counterStyle []
     fss
         [
-            Display.flex
-            CounterIncrement' indexCounter
-            FontSize' (px 20)
-            AnimationName' fadeInAnimation
-            AnimationDuration' (sec 0.4)
+            CounterIncrement.value indexCounter
+            FontSize.value (px 20)
+            AnimationName.value fadeInAnimation
+            AnimationDuration.value (sec 0.4)
             AnimationTimingFunction.ease
             ListStyleType.none
-            Width.maxContent
-            MaxHeight.value(em 1.)
             Before
-                [ Color.hex "48f"
-                  Content.counter(indexCounter,". ")
+                [
+                    Color.hex "48f"
+                    Content.counter(indexCounter,". ")
                 ]
-            Hover [ Cursor.pointer ]
         ]
 let formStyle =
     [
         Display.inlineBlock
         Padding.value(px 10, px 15)
-        FontSize' (px 18);
-        BorderRadius' (px 0)
+        FontSize.value (px 18);
+        BorderRadius.value (px 0)
     ]
-let buttonStyle =
-    fss
-        [
-            yield! formStyle
-            Border.none
-            BackgroundColor' blue
-            Color.white
-            Width' (em 10.)
-            Hover
-                [
-                    Cursor.pointer
-                    BackgroundColor' darkBlue
+
+[<ReactComponent>]
+let App () =
+    let input, setInput = React.useState ""
+    let todos, setTodos = React.useState<Todo list> []
+
+    React.useEffect((fun () ->
+        fetch "http://localhost:5000/todos" []
+        |> Promise.bind (fun result -> result.text())
+        |> Promise.map (fun result -> Decode.Auto.fromString<Todo list>(result))
+        |> Promise.map (fun result ->
+            match result with
+            | Ok todos -> setTodos todos
+            | Error e -> printfn $"Feil under dekoding av todos: {e}"
+            )
+        |> Promise.start)
+    , [||])
+
+    Html.div [
+        prop.fss [
+            Display.flex
+            FlexDirection.column
+            Padding.value(rem 0., rem 1.5)
+            textFont
+        ]
+        prop.children [
+            Html.h2 [
+                prop.fss [
+                    Color.value blue
                 ]
-        ]
-let inputStyle =
-    fss
-        [
-            yield! formStyle
-            BorderRadius' (px 0)
-            BorderWidth.thin
-            MarginRight' (px 25)
-            Width' (px 400)
-        ]
-
-
-
-// Elmish
-let todosApi =
-    Remoting.createApi()
-    |> Remoting.withRouteBuilder Route.builder
-    |> Remoting.buildProxy<ITodosApi>
-
-type Model = {
-    Input: string
-    Todos: Todo list
-    }
-
-type Msg =
-    | SetInput of string
-    | AddTodo of string
-    | AddedTodo of Todo
-    | UpdateTodo of Todo
-    | UpdatedTodo of Todo
-    | GotTodos of Todo list
-
-let init() =
-    { Input = ""
-      Todos = [] }, Cmd.OfAsync.perform todosApi.getTodos () GotTodos
-
-let update (msg: Msg) (model: Model) =
-    match msg with
-    | SetInput input ->
-        { model with Input = input }, Cmd.none
-    | AddTodo todo ->
-        let newTodo = createTodo todo false
-        { model with Input = "" }, Cmd.OfAsync.perform todosApi.addTodo newTodo AddedTodo
-    | AddedTodo todo ->
-        { model with Todos = model.Todos @ [todo] }, Cmd.none
-    | UpdateTodo todo ->
-        { model with Input = "" }, Cmd.OfAsync.perform todosApi.updateTodo todo UpdatedTodo
-    | UpdatedTodo todo ->
-        { model with Todos = List.map (fun x -> if x.Id = todo.Id then todo else x) model.Todos }, Cmd.none
-    | GotTodos todos ->
-        { model with Todos = todos }, Cmd.none
-
-let todo todo dispatch =
-    let doneStyle =
-        fss [ TextDecorationLine.lineThrough
-              Color.green ]
-
-    li [ OnClick (fun _ -> dispatch (UpdateTodo { todo with Done = not todo.Done })); ClassName <| combine [ todoStyle ] [ doneStyle, todo.Done ] ]
-        [
-            str todo.Title
-        ]
-
-let render (model: Model) (dispatch: Msg -> unit) =
-    div [ ClassName container ]
-        [
-            h2 [ ClassName header ] [ str "TODO" ]
-            ul [] <| List.map (fun x -> todo x dispatch) model.Todos
-            div []
-                [
-                    input
-                        [
-                            ClassName inputStyle
-                            Placeholder "What needs to be done?"
-                            Value model.Input
-                            OnChange (fun e -> e.Value |> SetInput |> dispatch)
-                        ]
-                    button
-                        [
-                            ClassName buttonStyle
-                            OnClick (fun _ -> model.Input |> AddTodo |> dispatch)
-                        ]
-                        [ str $"Add #{List.length model.Todos + 1}" ]
+                prop.text "TODO"
+            ]
+            Html.ul
+                (List.map (fun (todo: Todo) ->
+                    Html.li [
+                        prop.className todoStyle
+                        prop.text todo.Title
+                    ]
+                ) todos)
+            Html.div [
+                Html.input [
+                    prop.placeholder "What needs to be done?"
+                    prop.value input
+                    prop.onChange setInput
+                    prop.fss [
+                        yield! formStyle
+                        BorderRadius.value (px 0)
+                        BorderWidth.thin
+                        MarginRight.value (px 25)
+                        Width.value (px 400)
+                    ]
                 ]
+                Html.button [
+                    prop.fss [
+                        yield! formStyle
+                        Border.none
+                        BackgroundColor.value blue
+                        Color.white
+                        Width.value (em 10.)
+                        Hover
+                            [
+                                Cursor.pointer
+                                BackgroundColor.value darkBlue
+                            ]
+                    ]
+                    prop.text $"Add #{List.length todos}"
+                    prop.onClick (fun _ ->
+                        // TODO: Post request her?
+                        setTodos (todos @ [createTodo input false])
+                        setInput "" )
+                ]
+            ]
         ]
+    ]
 
-Program.mkProgram init update render
-|> Program.withReactSynchronous "elmish-app"
-|> Program.run
+open Browser.Dom
+
+ReactDOM.render (App(), document.getElementById "app")
